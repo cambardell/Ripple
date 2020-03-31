@@ -14,6 +14,8 @@
 		FC249E5C2432D5A2005D1855 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC249E5B2432D5A2005D1855 /* Assets.xcassets */; };
 		FC249E5F2432D5A2005D1855 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC249E5E2432D5A2005D1855 /* Preview Assets.xcassets */; };
 		FC249E622432D5A2005D1855 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC249E602432D5A2005D1855 /* LaunchScreen.storyboard */; };
+		FC65EB242433C414004E8431 /* UIColor+RippleV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC65EB232433C414004E8431 /* UIColor+RippleV2.swift */; };
+		FC65EB262433C477004E8431 /* Cosmetics.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC65EB252433C477004E8431 /* Cosmetics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		FC249E5E2432D5A2005D1855 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FC249E612432D5A2005D1855 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC249E632432D5A2005D1855 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC65EB232433C414004E8431 /* UIColor+RippleV2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+RippleV2.swift"; sourceTree = "<group>"; };
+		FC65EB252433C477004E8431 /* Cosmetics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cosmetics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,8 @@
 				FC249E522432D5A0005D1855 /* AppDelegate.swift */,
 				FC249E542432D5A0005D1855 /* SceneDelegate.swift */,
 				FC249E592432D5A0005D1855 /* ContentView.swift */,
+				FC65EB232433C414004E8431 /* UIColor+RippleV2.swift */,
+				FC65EB252433C477004E8431 /* Cosmetics.swift */,
 				FC249E5B2432D5A2005D1855 /* Assets.xcassets */,
 				FC249E602432D5A2005D1855 /* LaunchScreen.storyboard */,
 				FC249E632432D5A2005D1855 /* Info.plist */,
@@ -149,10 +155,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC65EB262433C477004E8431 /* Cosmetics.swift in Sources */,
 				FC249E582432D5A0005D1855 /* Ripple.xcdatamodeld in Sources */,
 				FC249E532432D5A0005D1855 /* AppDelegate.swift in Sources */,
 				FC249E5A2432D5A0005D1855 /* ContentView.swift in Sources */,
 				FC249E552432D5A0005D1855 /* SceneDelegate.swift in Sources */,
+				FC65EB242433C414004E8431 /* UIColor+RippleV2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
