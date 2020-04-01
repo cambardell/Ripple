@@ -9,21 +9,54 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    @State private var offset = CGSize.zero
     var body: some View {
-        VStack {
-            CalendarTab()
-            
-            ScrollView(.horizontal) {
-                HStack {
-                    LogCard(color: .rippleOrange)
-                    LogCard(color: .rippleYellow)
-                    LogCard(color: .rippleGreen)
-                }
-            }
-            Spacer()
-        }.edgesIgnoringSafeArea(.top)
         
+        GeometryReader { geometry in
+            ZStack {
+                VStack {
+                    CalendarTab()
+                    
+                    Text("Today's Logs").font(.largeTitle)
+                        .padding()
+                    
+                    Spacer()
+                    Divider()
+                        .padding(.bottom)
+                    
+                    HStack(spacing: 40) {
+                        BottomButton(image: "plus.circle.fill", text: "Add")
+                        BottomButton(image: "ellipsis.circle.fill", text: "Strategies")
+                        BottomButton(image: "book.circle.fill", text: "Log")
+                    }
+                }.edgesIgnoringSafeArea(.top)
+                
+                // Testing a card interface. Probably more appropriate when giving strategy suggestions. 
+                    LogCard(color: .rippleOrange, width: geometry.size.width, height: geometry.size.height)
+                        
+                        .offset(x: self.offset.width / 3, y: self.offset.height / 3)
+                        .gesture(
+                            DragGesture()
+                                .onChanged { gesture in
+                                    self.offset = gesture.translation
+                                    print("drag")
+                            }
+                                
+                            .onEnded { _ in
+                                if (pow(self.offset.width, 2) + pow(self.offset.width, 2)).squareRoot() > 100 {
+                                    print("move")
+                                    withAnimation {
+                                        self.offset = .zero
+                                    }
+                                    
+                                }
+                                withAnimation {
+                                   self.offset = .zero
+                                }
+                                
+                        })
+            }
+        }
     }
 }
 
@@ -40,12 +73,14 @@ struct CalendarTab: View {
             Spacer()
             VStack {
                 Text("Month")
-                    .font(.title)
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundColor(.rippleDarkBlue)
                     .padding()
                 
                 HStack(spacing: 30) {
                     ForEach(days, id: \.self) { day in
-                       Text(day)
+                        Text(day)
                     }
                     
                 }
@@ -54,22 +89,60 @@ struct CalendarTab: View {
             
         }.padding()
             .background(Color.rippleBlue)
-            
+        
     }
 }
 
 struct LogCard: View {
     var color: Color
+    var width: CGFloat
+    var height: CGFloat
+    @State var expand = false
     var body: some View {
         VStack {
             Text("Log Title").font(.largeTitle)
-            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
-                .padding()
+                .foregroundColor(.rippleDarkBlue)
+            Text("Tap to expand / edit")
+                .foregroundColor(.rippleDarkBlue)
+            
             Spacer()
-        }.frame(width: 250, height: 350)
-            .background(color)
+        }.frame(width: expand ? self.width - 50 : 200, height: expand ? self.height - 50 : 300)
+            .background(self.color)
             .cornerRadius(10)
-            .padding()
             .shadow(radius: 10)
+            .onTapGesture {
+                withAnimation {
+                    self.expand.toggle()
+                }
+                
+        }
+        
+        
+    }
+}
+
+struct BottomButton: View {
+    var image: String
+    var text: String
+    var body: some View {
+        VStack {
+            Button(action: {
+                print("button pressed")
+            }) {
+                Image(systemName: image)
+                    .resizable()
+                    .frame(width: 60, height: 60)
+                    .foregroundColor(.rippleDarkBlue)
+                
+            }
+            Text(text)
+        }
+    }
+}
+
+extension View {
+    func stacked(at position: Int, in total: Int) -> some View {
+        let offset = CGFloat(total - position)
+        return self.offset(CGSize(width: 0, height: offset * 10))
     }
 }
