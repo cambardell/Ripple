@@ -9,53 +9,44 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var offset = CGSize.zero
+    
+    @State var presentAddLog = false
     var body: some View {
         
         GeometryReader { geometry in
-            ZStack {
-                VStack {
-                    CalendarTab()
-                    
-                    Text("Today's Logs").font(.largeTitle)
-                        .padding()
-                    
-                    Spacer()
-                    Divider()
-                        .padding(.bottom)
-                    
-                    HStack(spacing: 40) {
-                        BottomButton(image: "plus.circle.fill", text: "Add")
-                        BottomButton(image: "ellipsis.circle.fill", text: "Strategies")
-                        BottomButton(image: "book.circle.fill", text: "Log")
+            
+            VStack {
+                CalendarTab()
+                ScrollView(.vertical) {
+                    HStack {
+                        Spacer()
+                        VStack(spacing: 10) {
+                            LogCard(color: .rippleGreen, width: geometry.size.width, height: geometry.size.height)
+                            LogCard(color: .rippleGreen, width: geometry.size.width, height: geometry.size.height)
+                            LogCard(color: .rippleGreen, width: geometry.size.width, height: geometry.size.height)
+                            LogCard(color: .rippleGreen, width: geometry.size.width, height: geometry.size.height)
+                        }
+                        Spacer()
                     }
-                }.edgesIgnoringSafeArea(.top)
+                    
+                }
+                    
+                Spacer()
+                Divider()
+                    .padding(.bottom)
                 
-                // Testing a card interface. Probably more appropriate when giving strategy suggestions. 
-                    LogCard(color: .rippleOrange, width: geometry.size.width, height: geometry.size.height)
-                        
-                        .offset(x: self.offset.width / 3, y: self.offset.height / 3)
-                        .gesture(
-                            DragGesture()
-                                .onChanged { gesture in
-                                    self.offset = gesture.translation
-                                    print("drag")
-                            }
-                                
-                            .onEnded { _ in
-                                if (pow(self.offset.width, 2) + pow(self.offset.width, 2)).squareRoot() > 100 {
-                                    print("move")
-                                    withAnimation {
-                                        self.offset = .zero
-                                    }
-                                    
-                                }
-                                withAnimation {
-                                   self.offset = .zero
-                                }
-                                
-                        })
-            }
+                HStack(spacing: 40) {
+                    BottomButton(toggle: self.$presentAddLog, image: "plus.circle.fill", text: "Add")
+                    BottomButton(toggle: self.$presentAddLog, image: "ellipsis.circle.fill", text: "Strategies")
+                    BottomButton(toggle: self.$presentAddLog, image: "book.circle.fill", text: "Log")
+                }
+            }.edgesIgnoringSafeArea(.top)
+            
+            // Testing a card interface. Probably more appropriate when giving strategy suggestions.
+            
+            
+        }.sheet(isPresented: $presentAddLog) {
+            AddLogView()
         }
     }
 }
@@ -67,23 +58,27 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct CalendarTab: View {
-    let days = ["S", "M", "T", "W", "T", "F", "S",]
+    
+    
     var body: some View {
         HStack {
             Spacer()
-            VStack {
+            VStack(spacing: 10) {
                 Text("Month")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundColor(.rippleDarkBlue)
-                    .padding()
                 
-                HStack(spacing: 30) {
-                    ForEach(days, id: \.self) { day in
-                        Text(day)
-                    }
-                    
+                MonthGrid(days: 30) { day in
+                    Capsule()
+                        .fill(Color.rippleYellow)
+                        .shadow(radius: 5)
+                        .frame(width: 35, height: 35)
+                        .overlay(Text(String(day)))
+                        .padding([.leading, .trailing], 5)
+                       
                 }
+                
             }.padding(.top)
             Spacer()
             
@@ -93,41 +88,17 @@ struct CalendarTab: View {
     }
 }
 
-struct LogCard: View {
-    var color: Color
-    var width: CGFloat
-    var height: CGFloat
-    @State var expand = false
-    var body: some View {
-        VStack {
-            Text("Log Title").font(.largeTitle)
-                .foregroundColor(.rippleDarkBlue)
-            Text("Tap to expand / edit")
-                .foregroundColor(.rippleDarkBlue)
-            
-            Spacer()
-        }.frame(width: expand ? self.width - 50 : 200, height: expand ? self.height - 50 : 300)
-            .background(self.color)
-            .cornerRadius(10)
-            .shadow(radius: 10)
-            .onTapGesture {
-                withAnimation {
-                    self.expand.toggle()
-                }
-                
-        }
-        
-        
-    }
-}
+
 
 struct BottomButton: View {
+    @Binding var toggle: Bool
     var image: String
     var text: String
     var body: some View {
         VStack {
             Button(action: {
                 print("button pressed")
+                self.toggle.toggle()
             }) {
                 Image(systemName: image)
                     .resizable()
@@ -139,6 +110,39 @@ struct BottomButton: View {
         }
     }
 }
+
+struct MonthGrid<Content: View>: View {
+    let days: Int
+    let content: (Int) -> Content
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            ForEach(0 ..< (days / 7), id: \.self) { row in
+                HStack {
+                    ForEach(0 ..< 7, id: \.self) { column in
+            
+                        self.content(column + (row * 7) + 1)
+                        
+                    }
+                }
+            }
+            HStack {
+                if days % 7 >= 1 {
+                    ForEach(1 ... (days % 7), id: \.self) { column in
+                        self.content(7 * 4 + column)
+                    }
+                }
+                
+            }
+        }
+    }
+    
+    init(days: Int, @ViewBuilder content: @escaping (Int) -> Content) {
+        self.days = days
+        self.content = content
+    }
+}
+
 
 extension View {
     func stacked(at position: Int, in total: Int) -> some View {
