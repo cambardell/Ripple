@@ -17,20 +17,17 @@ struct ContentView: View {
             
             VStack {
                 CalendarTab()
-                ScrollView(.vertical) {
-                    HStack {
-                        Spacer()
-                        VStack(spacing: 10) {
-                            LogCard(color: .rippleGreen, width: geometry.size.width, height: geometry.size.height)
-                            LogCard(color: .rippleGreen, width: geometry.size.width, height: geometry.size.height)
-                            LogCard(color: .rippleGreen, width: geometry.size.width, height: geometry.size.height)
-                            LogCard(color: .rippleGreen, width: geometry.size.width, height: geometry.size.height)
-                        }
-                        Spacer()
+                
+                HStack {
+                    Spacer()
+                    VStack(spacing: 10) {
+                        LogCard(color: .rippleYellow, width: geometry.size.width, height: geometry.size.height)
+                        LogCard(color: .rippleOrange, width: geometry.size.width, height: geometry.size.height)
+                      
                     }
-                    
+                    Spacer()
                 }
-                    
+
                 Spacer()
                 Divider()
                     .padding(.bottom)
@@ -58,8 +55,7 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct CalendarTab: View {
-    
-    
+    let weekList = ["S", "M", "T", "W", "T", "F", "S"]
     var body: some View {
         HStack {
             Spacer()
@@ -69,15 +65,7 @@ struct CalendarTab: View {
                     .fontWeight(.bold)
                     .foregroundColor(.rippleDarkBlue)
                 
-                MonthGrid(days: 30) { day in
-                    Capsule()
-                        .fill(Color.rippleYellow)
-                        .shadow(radius: 5)
-                        .frame(width: 35, height: 35)
-                        .overlay(Text(String(day)))
-                        .padding([.leading, .trailing], 5)
-                       
-                }
+                WeekRow(days: weekList)
                 
             }.padding(.top)
             Spacer()
@@ -111,6 +99,25 @@ struct BottomButton: View {
     }
 }
 
+struct WeekRow: View {
+    let days: [String]
+    @State var selected = false
+    var body: some View {
+        HStack {
+            ForEach(days, id: \.self) { day in
+                Capsule()
+                    .fill(Color.rippleGreen)
+                    .shadow(radius: 5)
+                    .frame(width: 35, height: 35)
+                    .hidden()
+                    .overlay(Text(day))
+                    .padding([.leading, .trailing], 5)
+                
+            }
+        }
+    }
+}
+
 struct MonthGrid<Content: View>: View {
     let days: Int
     let content: (Int) -> Content
@@ -120,9 +127,7 @@ struct MonthGrid<Content: View>: View {
             ForEach(0 ..< (days / 7), id: \.self) { row in
                 HStack {
                     ForEach(0 ..< 7, id: \.self) { column in
-            
                         self.content(column + (row * 7) + 1)
-                        
                     }
                 }
             }
@@ -132,7 +137,6 @@ struct MonthGrid<Content: View>: View {
                         self.content(7 * 4 + column)
                     }
                 }
-                
             }
         }
     }

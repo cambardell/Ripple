@@ -41,7 +41,7 @@ struct LogCard: View {
                 
             }
             Spacer()
-        }.frame(width: expand ? self.width - 50 : 250, height: expand ? self.height - 400 : 100)
+        }.frame(width: self.width - 50, height: expand ? self.height / 2 : 150)
             .background(self.color)
             .cornerRadius(10)
             .shadow(radius: 10)
@@ -51,6 +51,6 @@ struct LogCard: View {
 
 struct LogCard_Previews: PreviewProvider {
     static var previews: some View {
-        LogCard(color: .rippleGreen, width: 375, height: 734)
+        LogCard(color: .rippleYellow, width: 400, height: 734)
     }
 }
