@@ -16,31 +16,46 @@ struct ContentView: View {
         GeometryReader { geometry in
             
             VStack {
-                CalendarTab()
                 
+                CalendarTab().padding(.top)
+                    .background(Color.rippleBlue)
+                Text("Today's Logs").font(.custom("AbrilFatface-Regular", size: 30))
                 HStack {
                     Spacer()
                     VStack(spacing: 10) {
                         LogCard(color: .rippleYellow, width: geometry.size.width, height: geometry.size.height)
+                        
+                        
                         LogCard(color: .rippleOrange, width: geometry.size.width, height: geometry.size.height)
+                        
                       
                     }
                     Spacer()
                 }
 
                 Spacer()
-                Divider()
-                    .padding(.bottom)
                 
-                HStack(spacing: 40) {
-                    BottomButton(toggle: self.$presentAddLog, image: "plus.circle.fill", text: "Add")
-                    BottomButton(toggle: self.$presentAddLog, image: "ellipsis.circle.fill", text: "Strategies")
-                    BottomButton(toggle: self.$presentAddLog, image: "book.circle.fill", text: "Log")
+                Button(action: {
+                    print("Show mood chart")
+                }) {
+                    Text("View Chart")
+                        .font(.headline)
+                        .foregroundColor(.rippleDarkGreen)
+                        .padding()
+                        .overlay(
+                            Capsule()
+                                .stroke(lineWidth: 5)
+                                .foregroundColor(.rippleDarkGreen)
+                            
+                        )
                 }
+                
+//                HStack(spacing: 40) {
+//                    BottomButton(toggle: self.$presentAddLog, image: "plus.circle.fill", text: "Add")
+//                    BottomButton(toggle: self.$presentAddLog, image: "ellipsis.circle.fill", text: "Strategies")
+//                    BottomButton(toggle: self.$presentAddLog, image: "book.circle.fill", text: "Log")
+//                }
             }.edgesIgnoringSafeArea(.top)
-            
-            // Testing a card interface. Probably more appropriate when giving strategy suggestions.
-            
             
         }.sheet(isPresented: $presentAddLog) {
             AddLogView()
@@ -59,19 +74,18 @@ struct CalendarTab: View {
     var body: some View {
         HStack {
             Spacer()
-            VStack(spacing: 10) {
+            VStack {
                 Text("Month")
-                    .font(.largeTitle)
+                    .font(.custom("AbrilFatface-Regular", size: 40))
                     .fontWeight(.bold)
-                    .foregroundColor(.rippleDarkBlue)
-                
+                    
                 WeekRow(days: weekList)
                 
-            }.padding(.top)
+            }
             Spacer()
             
         }.padding()
-            .background(Color.rippleBlue)
+        .background(Color.rippleBlue)
         
     }
 }

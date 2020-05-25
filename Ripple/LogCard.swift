@@ -21,7 +21,7 @@ struct LogCard: View {
                 Text("Log Title").font(.title)
                 Spacer()
                 Button(action: {
-                    withAnimation {
+                    withAnimation(.spring(response: 0.2, dampingFraction: 0.4, blendDuration: 0.2)) {
                        self.expand.toggle()
                     }
                     
@@ -32,9 +32,10 @@ struct LogCard: View {
                 }
             }
             Divider()
-            Text("Tap to expand / edit")
+            Text("Tap arrow to expand")
             if expand {
-                TextView(text: self.$text, placeholder: "Edit the text here")
+                TextField("Enter text", text: self.$text)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
                 .cornerRadius(5)
                 .padding()
             

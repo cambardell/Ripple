@@ -14,6 +14,10 @@
 		FC249E5C2432D5A2005D1855 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC249E5B2432D5A2005D1855 /* Assets.xcassets */; };
 		FC249E5F2432D5A2005D1855 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC249E5E2432D5A2005D1855 /* Preview Assets.xcassets */; };
 		FC249E622432D5A2005D1855 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC249E602432D5A2005D1855 /* LaunchScreen.storyboard */; };
+		FC5589BF247C8556005E3217 /* AbrilFatface-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC5589BE247C8556005E3217 /* AbrilFatface-Regular.ttf */; };
+		FC5589C3247C861A005E3217 /* OldStandardTT-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC5589C0247C8619005E3217 /* OldStandardTT-Regular.ttf */; };
+		FC5589C4247C861A005E3217 /* OldStandardTT-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC5589C1247C8619005E3217 /* OldStandardTT-Italic.ttf */; };
+		FC5589C5247C861A005E3217 /* OldStandardTT-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC5589C2247C8619005E3217 /* OldStandardTT-Bold.ttf */; };
 		FC65EB242433C414004E8431 /* UIColor+RippleV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC65EB232433C414004E8431 /* UIColor+RippleV2.swift */; };
 		FC65EB262433C477004E8431 /* Cosmetics.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC65EB252433C477004E8431 /* Cosmetics.swift */; };
 		FC7C7D0D243EA31B00633057 /* LogCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C7D0C243EA31B00633057 /* LogCard.swift */; };
@@ -31,6 +35,10 @@
 		FC249E5E2432D5A2005D1855 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FC249E612432D5A2005D1855 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC249E632432D5A2005D1855 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC5589BE247C8556005E3217 /* AbrilFatface-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AbrilFatface-Regular.ttf"; sourceTree = "<group>"; };
+		FC5589C0247C8619005E3217 /* OldStandardTT-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OldStandardTT-Regular.ttf"; sourceTree = "<group>"; };
+		FC5589C1247C8619005E3217 /* OldStandardTT-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OldStandardTT-Italic.ttf"; sourceTree = "<group>"; };
+		FC5589C2247C8619005E3217 /* OldStandardTT-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OldStandardTT-Bold.ttf"; sourceTree = "<group>"; };
 		FC65EB232433C414004E8431 /* UIColor+RippleV2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+RippleV2.swift"; sourceTree = "<group>"; };
 		FC65EB252433C477004E8431 /* Cosmetics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cosmetics.swift; sourceTree = "<group>"; };
 		FC7C7D0C243EA31B00633057 /* LogCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCard.swift; sourceTree = "<group>"; };
@@ -80,6 +88,7 @@
 				FC249E602432D5A2005D1855 /* LaunchScreen.storyboard */,
 				FC249E632432D5A2005D1855 /* Info.plist */,
 				FC249E562432D5A0005D1855 /* Ripple.xcdatamodeld */,
+				FC5589BD247C853F005E3217 /* fonts */,
 				FC249E5D2432D5A2005D1855 /* Preview Content */,
 			);
 			path = Ripple;
@@ -91,6 +100,17 @@
 				FC249E5E2432D5A2005D1855 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FC5589BD247C853F005E3217 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FC5589BE247C8556005E3217 /* AbrilFatface-Regular.ttf */,
+				FC5589C2247C8619005E3217 /* OldStandardTT-Bold.ttf */,
+				FC5589C1247C8619005E3217 /* OldStandardTT-Italic.ttf */,
+				FC5589C0247C8619005E3217 /* OldStandardTT-Regular.ttf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,7 +173,11 @@
 			files = (
 				FC249E622432D5A2005D1855 /* LaunchScreen.storyboard in Resources */,
 				FC249E5F2432D5A2005D1855 /* Preview Assets.xcassets in Resources */,
+				FC5589C5247C861A005E3217 /* OldStandardTT-Bold.ttf in Resources */,
+				FC5589C3247C861A005E3217 /* OldStandardTT-Regular.ttf in Resources */,
+				FC5589C4247C861A005E3217 /* OldStandardTT-Italic.ttf in Resources */,
 				FC249E5C2432D5A2005D1855 /* Assets.xcassets in Resources */,
+				FC5589BF247C8556005E3217 /* AbrilFatface-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -33,6 +33,8 @@ extension Color {
     static let rippleGreen = Color(UIColor.rippleGreen)
     static let rippleDarkGreen = Color(UIColor.rippleDarkGreen)
     static let rippleDarkBlue = Color(UIColor.rippleDarkBlue)
+    static let rippleBrightYellow = Color(UIColor.rippleBrightYellow)
+    static let rippleBrightOrange = Color(UIColor.rippleBrightOrange)
     
     
 }
