@@ -12,32 +12,64 @@ struct LogCard: View {
     var color: Color
     var width: CGFloat
     var height: CGFloat
+    var title: String
     @State var expand = false
     @State var text = ""
     var body: some View {
         VStack {
             HStack {
                 Spacer()
-                Text("Log Title").font(.title)
+                Text(title).font(.custom("JosefinSans-Light", size: 30))
+                    .padding(.top)
                 Spacer()
-                Button(action: {
-                    withAnimation(.spring(response: 0.2, dampingFraction: 0.4, blendDuration: 0.2)) {
-                       self.expand.toggle()
-                    }
-                    
-                }) {
-                    Image(systemName: expand ? "arrow.down.left" : "arrow.up.right")
-                        .frame(width: 30, height: 30)
-                        .foregroundColor(.black)
+                
+            }.onTapGesture {
+                withAnimation(.spring(response: 0.2, dampingFraction: 0.4, blendDuration: 0.2)) {
+                   self.expand.toggle()
                 }
+                
             }
             Divider()
-            Text("Tap arrow to expand")
+            Text("To Do").font(.custom("JosefinSans-Light", size: 30))
+            .padding(.top)
             if expand {
-                TextField("Enter text", text: self.$text)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .cornerRadius(5)
-                .padding()
+                VStack(spacing: 20) {
+                    Rectangle()
+                        .frame(height: 45)
+                        .cornerRadius(10)
+                        .foregroundColor(.white)
+                        .padding([.leading, .trailing])
+                        .overlay(
+                            Text("Rate overall wellness")
+                        )
+                        
+                    Rectangle()
+                        .frame(height: 45)
+                        .cornerRadius(10)
+                        .foregroundColor(.white)
+                        .padding([.leading, .trailing])
+                        .overlay(
+                            Text("Rate (sleep/anxiety/specific attribute)")
+                        )
+                    Rectangle()
+                    .frame(height: 90)
+                    .cornerRadius(10)
+                    .foregroundColor(.white)
+                    .padding([.leading, .trailing])
+                    .overlay(
+                        Text("Text field for general comments")
+                    )
+                    Rectangle()
+                        .frame(height: 45)
+                        .cornerRadius(10)
+                        .foregroundColor(.white)
+                        .padding([.leading, .trailing])
+                        .overlay(
+                            Text("Save button")
+                        )
+                    
+                }
+                
             
                 
             }
@@ -52,6 +84,90 @@ struct LogCard: View {
 
 struct LogCard_Previews: PreviewProvider {
     static var previews: some View {
-        LogCard(color: .rippleYellow, width: 400, height: 734)
+        Group {
+            LogCard(color: .rippleYellow, width: 400, height: 734, title: "Morning Log")
+            LogCard2(color: .rippleYellow, width: 400, height: 734, title: "Morning Log")
+        }
+        
+    }
+}
+
+
+struct LogCard2: View {
+    var color: Color
+    var width: CGFloat
+    var height: CGFloat
+    var title: String
+    @State var expand = false
+    @State var text = ""
+    var body: some View {
+        VStack {
+            HStack {
+                Spacer()
+                Text(title).font(.custom("JosefinSans-Light", size: 30))
+                    .padding()
+                Spacer()
+                
+            }.onTapGesture {
+                withAnimation(.spring(response: 0.2, dampingFraction: 0.4, blendDuration: 0.2)) {
+                   self.expand.toggle()
+                }
+                
+            }
+            Divider()
+            Text("To Do").font(.custom("JosefinSans-Light", size: 30))
+            .padding()
+            if expand {
+                VStack(spacing: 20) {
+                    Rectangle()
+                        .frame(height: 45)
+                        .cornerRadius(10)
+                        .foregroundColor(.white)
+                        .padding([.leading, .trailing])
+                        .overlay(
+                            Text("Rate overall wellness")
+                        )
+                        
+                    Rectangle()
+                        .frame(height: 45)
+                        .cornerRadius(10)
+                        .foregroundColor(.white)
+                        .padding([.leading, .trailing])
+                        .overlay(
+                            Text("Rate (sleep/anxiety/specific attribute)")
+                        )
+                    Rectangle()
+                    .frame(height: 90)
+                    .cornerRadius(10)
+                    .foregroundColor(.white)
+                    .padding([.leading, .trailing])
+                    .overlay(
+                        Text("Text field for general comments")
+                    )
+                    Rectangle()
+                        .frame(height: 45)
+                        .cornerRadius(10)
+                        .foregroundColor(.white)
+                        .padding([.leading, .trailing])
+                        .overlay(
+                            Text("Save button")
+                        )
+                    
+                }.padding()
+            }
+        }.background(
+            Rectangle()
+                .fill(self.color)
+                .cornerRadius(10)
+                .opacity(0.8)
+                .padding([.leading, .trailing])
+                .shadow(radius: 5)
+        ).onTapGesture {
+            withAnimation(.spring(response: 0.2, dampingFraction: 0.4, blendDuration: 0.2)) {
+                self.expand.toggle()
+            }
+            
+        }
+        
     }
 }

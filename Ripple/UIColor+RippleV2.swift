@@ -7,7 +7,7 @@ extension UIColor {
 	}
 
 	class var rippleOrange: UIColor {
-		return UIColor(red: 1.00, green: 0.57, blue: 0.00, alpha: 1.00)
+        return UIColor(red: 1.00, green: 0.57, blue: 0.00, alpha: 1.00)
 	}
     
     class var rippleBrightOrange: UIColor {
@@ -15,7 +15,7 @@ extension UIColor {
     }
 
 	class var rippleYellow: UIColor {
-		return UIColor(red: 1.00, green: 0.77, blue: 0.05, alpha: 1.00)
+        return UIColor(red: 1.00, green: 0.77, blue: 0.05, alpha: 1.00)
 	}
     
     class var rippleBrightYellow: UIColor {

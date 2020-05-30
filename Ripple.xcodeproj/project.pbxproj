@@ -14,14 +14,15 @@
 		FC249E5C2432D5A2005D1855 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC249E5B2432D5A2005D1855 /* Assets.xcassets */; };
 		FC249E5F2432D5A2005D1855 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC249E5E2432D5A2005D1855 /* Preview Assets.xcassets */; };
 		FC249E622432D5A2005D1855 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC249E602432D5A2005D1855 /* LaunchScreen.storyboard */; };
-		FC5589BF247C8556005E3217 /* AbrilFatface-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC5589BE247C8556005E3217 /* AbrilFatface-Regular.ttf */; };
-		FC5589C3247C861A005E3217 /* OldStandardTT-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC5589C0247C8619005E3217 /* OldStandardTT-Regular.ttf */; };
-		FC5589C4247C861A005E3217 /* OldStandardTT-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC5589C1247C8619005E3217 /* OldStandardTT-Italic.ttf */; };
-		FC5589C5247C861A005E3217 /* OldStandardTT-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC5589C2247C8619005E3217 /* OldStandardTT-Bold.ttf */; };
 		FC65EB242433C414004E8431 /* UIColor+RippleV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC65EB232433C414004E8431 /* UIColor+RippleV2.swift */; };
 		FC65EB262433C477004E8431 /* Cosmetics.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC65EB252433C477004E8431 /* Cosmetics.swift */; };
 		FC7C7D0D243EA31B00633057 /* LogCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C7D0C243EA31B00633057 /* LogCard.swift */; };
 		FC7C7D11243EA5C800633057 /* UIKitTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C7D10243EA5C800633057 /* UIKitTextField.swift */; };
+		FC931A25247CC94C00405A4F /* Jost-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC931A24247CC94C00405A4F /* Jost-Regular.ttf */; };
+		FC931A27247CC95600405A4F /* JosefinSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC931A26247CC95600405A4F /* JosefinSans-Regular.ttf */; };
+		FC931A29247CC9F400405A4F /* JosefinSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC931A28247CC9F400405A4F /* JosefinSans-Light.ttf */; };
+		FC931A2B247CCA7500405A4F /* Jost-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC931A2A247CCA7500405A4F /* Jost-Light.ttf */; };
+		FC965D26247F33AB00A06178 /* DatesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC965D25247F33AB00A06178 /* DatesModel.swift */; };
 		FCFAA25A243919D400864EB1 /* AddLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFAA259243919D400864EB1 /* AddLogView.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,14 +36,15 @@
 		FC249E5E2432D5A2005D1855 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FC249E612432D5A2005D1855 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC249E632432D5A2005D1855 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FC5589BE247C8556005E3217 /* AbrilFatface-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AbrilFatface-Regular.ttf"; sourceTree = "<group>"; };
-		FC5589C0247C8619005E3217 /* OldStandardTT-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OldStandardTT-Regular.ttf"; sourceTree = "<group>"; };
-		FC5589C1247C8619005E3217 /* OldStandardTT-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OldStandardTT-Italic.ttf"; sourceTree = "<group>"; };
-		FC5589C2247C8619005E3217 /* OldStandardTT-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OldStandardTT-Bold.ttf"; sourceTree = "<group>"; };
 		FC65EB232433C414004E8431 /* UIColor+RippleV2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+RippleV2.swift"; sourceTree = "<group>"; };
 		FC65EB252433C477004E8431 /* Cosmetics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cosmetics.swift; sourceTree = "<group>"; };
 		FC7C7D0C243EA31B00633057 /* LogCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCard.swift; sourceTree = "<group>"; };
 		FC7C7D10243EA5C800633057 /* UIKitTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitTextField.swift; sourceTree = "<group>"; };
+		FC931A24247CC94C00405A4F /* Jost-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-Regular.ttf"; sourceTree = "<group>"; };
+		FC931A26247CC95600405A4F /* JosefinSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Regular.ttf"; sourceTree = "<group>"; };
+		FC931A28247CC9F400405A4F /* JosefinSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Light.ttf"; sourceTree = "<group>"; };
+		FC931A2A247CCA7500405A4F /* Jost-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-Light.ttf"; sourceTree = "<group>"; };
+		FC965D25247F33AB00A06178 /* DatesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesModel.swift; sourceTree = "<group>"; };
 		FCFAA259243919D400864EB1 /* AddLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLogView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +81,7 @@
 				FC249E522432D5A0005D1855 /* AppDelegate.swift */,
 				FC249E542432D5A0005D1855 /* SceneDelegate.swift */,
 				FC249E592432D5A0005D1855 /* ContentView.swift */,
+				FC965D25247F33AB00A06178 /* DatesModel.swift */,
 				FC7C7D0C243EA31B00633057 /* LogCard.swift */,
 				FC7C7D10243EA5C800633057 /* UIKitTextField.swift */,
 				FCFAA259243919D400864EB1 /* AddLogView.swift */,
@@ -105,10 +108,10 @@
 		FC5589BD247C853F005E3217 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
-				FC5589BE247C8556005E3217 /* AbrilFatface-Regular.ttf */,
-				FC5589C2247C8619005E3217 /* OldStandardTT-Bold.ttf */,
-				FC5589C1247C8619005E3217 /* OldStandardTT-Italic.ttf */,
-				FC5589C0247C8619005E3217 /* OldStandardTT-Regular.ttf */,
+				FC931A28247CC9F400405A4F /* JosefinSans-Light.ttf */,
+				FC931A2A247CCA7500405A4F /* Jost-Light.ttf */,
+				FC931A24247CC94C00405A4F /* Jost-Regular.ttf */,
+				FC931A26247CC95600405A4F /* JosefinSans-Regular.ttf */,
 			);
 			path = fonts;
 			sourceTree = "<group>";
@@ -171,13 +174,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC931A2B247CCA7500405A4F /* Jost-Light.ttf in Resources */,
 				FC249E622432D5A2005D1855 /* LaunchScreen.storyboard in Resources */,
 				FC249E5F2432D5A2005D1855 /* Preview Assets.xcassets in Resources */,
-				FC5589C5247C861A005E3217 /* OldStandardTT-Bold.ttf in Resources */,
-				FC5589C3247C861A005E3217 /* OldStandardTT-Regular.ttf in Resources */,
-				FC5589C4247C861A005E3217 /* OldStandardTT-Italic.ttf in Resources */,
+				FC931A29247CC9F400405A4F /* JosefinSans-Light.ttf in Resources */,
+				FC931A25247CC94C00405A4F /* Jost-Regular.ttf in Resources */,
 				FC249E5C2432D5A2005D1855 /* Assets.xcassets in Resources */,
-				FC5589BF247C8556005E3217 /* AbrilFatface-Regular.ttf in Resources */,
+				FC931A27247CC95600405A4F /* JosefinSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +196,7 @@
 				FCFAA25A243919D400864EB1 /* AddLogView.swift in Sources */,
 				FC249E532432D5A0005D1855 /* AppDelegate.swift in Sources */,
 				FC7C7D0D243EA31B00633057 /* LogCard.swift in Sources */,
+				FC965D26247F33AB00A06178 /* DatesModel.swift in Sources */,
 				FC249E5A2432D5A0005D1855 /* ContentView.swift in Sources */,
 				FC7C7D11243EA5C800633057 /* UIKitTextField.swift in Sources */,
 				FC249E552432D5A0005D1855 /* SceneDelegate.swift in Sources */,
@@ -333,7 +337,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Ripple/Preview Content\"";
 				DEVELOPMENT_TEAM = N2WWEZ627P;
 				ENABLE_PREVIEWS = YES;
@@ -355,7 +359,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Ripple/Preview Content\"";
 				DEVELOPMENT_TEAM = N2WWEZ627P;
 				ENABLE_PREVIEWS = YES;

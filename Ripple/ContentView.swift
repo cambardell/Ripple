@@ -9,30 +9,26 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @State var presentAddLog = false
+    @EnvironmentObject var week: currentWeek
+
     var body: some View {
         
         GeometryReader { geometry in
-            
             VStack {
-                
+            
                 CalendarTab().padding(.top)
                     .background(Color.rippleBlue)
-                Text("Today's Logs").font(.custom("AbrilFatface-Regular", size: 30))
-                HStack {
-                    Spacer()
-                    VStack(spacing: 10) {
-                        LogCard(color: .rippleYellow, width: geometry.size.width, height: geometry.size.height)
-                        
-                        
-                        LogCard(color: .rippleOrange, width: geometry.size.width, height: geometry.size.height)
-                        
-                      
-                    }
-                    Spacer()
-                }
-
+                    .padding(.bottom)
+                
+                
+                LogCard2(color: .rippleYellow, width: geometry.size.width, height: geometry.size.height, title: "Morning Log")
+                    .padding(.bottom)
+                
+                
+                LogCard2(color: .rippleOrange, width: geometry.size.width, height: geometry.size.height, title: "Morning Log")
+                    .padding(.top)
+                
+                
                 Spacer()
                 
                 Button(action: {
@@ -40,95 +36,89 @@ struct ContentView: View {
                 }) {
                     Text("View Chart")
                         .font(.headline)
-                        .foregroundColor(.rippleDarkGreen)
+                        .foregroundColor(.rippleDarkBlue)
                         .padding()
                         .overlay(
                             Capsule()
                                 .stroke(lineWidth: 5)
-                                .foregroundColor(.rippleDarkGreen)
+                                .foregroundColor(.rippleDarkBlue)
+                                
                             
                         )
+                        
                 }
-                
-//                HStack(spacing: 40) {
-//                    BottomButton(toggle: self.$presentAddLog, image: "plus.circle.fill", text: "Add")
-//                    BottomButton(toggle: self.$presentAddLog, image: "ellipsis.circle.fill", text: "Strategies")
-//                    BottomButton(toggle: self.$presentAddLog, image: "book.circle.fill", text: "Log")
-//                }
             }.edgesIgnoringSafeArea(.top)
             
-        }.sheet(isPresented: $presentAddLog) {
-            AddLogView()
         }
     }
+    
+   
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(currentWeek())
     }
 }
 
 struct CalendarTab: View {
-    let weekList = ["S", "M", "T", "W", "T", "F", "S"]
+    @EnvironmentObject var week: currentWeek
     var body: some View {
         HStack {
             Spacer()
             VStack {
-                Text("Month")
-                    .font(.custom("AbrilFatface-Regular", size: 40))
-                    .fontWeight(.bold)
-                    
-                WeekRow(days: weekList)
+                Text(monthString(date: week.currentDate))
+                    .font(.custom("JosefinSans-Regular", size: 40))
+                    .padding(.top)
+                
+                WeekRow()
                 
             }
             Spacer()
             
         }.padding()
-        .background(Color.rippleBlue)
+            .background(Color.rippleBlue)
         
     }
-}
-
-
-
-struct BottomButton: View {
-    @Binding var toggle: Bool
-    var image: String
-    var text: String
-    var body: some View {
-        VStack {
-            Button(action: {
-                print("button pressed")
-                self.toggle.toggle()
-            }) {
-                Image(systemName: image)
-                    .resizable()
-                    .frame(width: 60, height: 60)
-                    .foregroundColor(.rippleDarkBlue)
-                
-            }
-            Text(text)
-        }
+    
+    func monthString(date: Date) -> String {
+        let formatter1 = DateFormatter()
+        formatter1.dateFormat = "MMMM"
+        return formatter1.string(from: date)
     }
 }
 
 struct WeekRow: View {
-    let days: [String]
+    @EnvironmentObject var week: currentWeek
     @State var selected = false
+    let calendar = Calendar.current
     var body: some View {
         HStack {
-            ForEach(days, id: \.self) { day in
-                Capsule()
-                    .fill(Color.rippleGreen)
-                    .shadow(radius: 5)
-                    .frame(width: 35, height: 35)
-                    .hidden()
-                    .overlay(Text(day))
-                    .padding([.leading, .trailing], 5)
-                
+            ForEach(week.days, id: \.self) { day in
+                Text(self.dayString(date: day))
+                    .font(.custom("Jost-Light", size: 20))
+                    .padding(8)
+                    .background(
+                        Circle()
+                            .fill(Color.rippleOrange)
+                            .frame(width: day == self.week.currentDate ? 35 : 0, height: day == self.week.currentDate ? 35 : 0)
+                            .shadow(radius: 5)
+                        
+                            
+                    )
+                    .onTapGesture {
+                        withAnimation(.spring(response: 0.1, dampingFraction: 0.2, blendDuration: 0.2)) {
+                            self.week.setCurrentDateTo(date: day)
+                        }
+                }
+                    
             }
         }
+    }
+    func dayString(date: Date) -> String {
+        let formatter1 = DateFormatter()
+        formatter1.dateFormat = "d"
+        return formatter1.string(from: date)
     }
 }
 
@@ -168,3 +158,5 @@ extension View {
         return self.offset(CGSize(width: 0, height: offset * 10))
     }
 }
+
+
