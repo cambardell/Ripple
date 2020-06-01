@@ -16,6 +16,20 @@ class currentWeek: ObservableObject {
         self.currentDate = date
         print(self.currentDate)
     }
+    
+    func nextWeek() {
+        var  dateComponent = DateComponents()
+        dateComponent.day = 7
+        self.currentDate = Calendar.current.date(byAdding: dateComponent, to: self.currentDate)!
+        days = returnDaysOfWeek(date: currentDate)
+    }
+    
+    func lastWeek() {
+        var  dateComponent = DateComponents()
+        dateComponent.day = -7
+        self.currentDate = Calendar.current.date(byAdding: dateComponent, to: self.currentDate)!
+        days = returnDaysOfWeek(date: currentDate)
+    }
 }
 
 func returnDaysOfWeek(date: Date) -> [Date] {

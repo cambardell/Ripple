@@ -10,12 +10,12 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var week: currentWeek
-
+    
     var body: some View {
         
         GeometryReader { geometry in
             VStack {
-            
+                
                 CalendarTab().padding(.top)
                     .background(Color.rippleBlue)
                     .padding(.bottom)
@@ -42,17 +42,17 @@ struct ContentView: View {
                             Capsule()
                                 .stroke(lineWidth: 5)
                                 .foregroundColor(.rippleDarkBlue)
-                                
                             
-                        )
-                        
+                            
+                    )
+                    
                 }
             }.edgesIgnoringSafeArea(.top)
             
         }
     }
     
-   
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -67,9 +67,33 @@ struct CalendarTab: View {
         HStack {
             Spacer()
             VStack {
-                Text(monthString(date: week.currentDate))
-                    .font(.custom("JosefinSans-Regular", size: 40))
-                    .padding(.top)
+                HStack {
+                    Button(action: {
+                        self.week.lastWeek()
+                    },
+                           label: {
+                            Image(systemName: "arrow.left")
+                                .resizable()
+                                .frame(width: 30, height: 20)
+                                .foregroundColor(.rippleOrange)
+                    })
+                    Spacer()
+                    Text(monthString(date: week.currentDate))
+                        .font(.custom("JosefinSans-Regular", size: 40))
+                        .padding(.top)
+                    Spacer()
+                    Button(action: {
+                        self.week.nextWeek()
+                        print(self.week.currentDate)
+                    },
+                           label: {
+                            Image(systemName: "arrow.right")
+                                .resizable()
+                                .frame(width: 30, height: 20)
+                                .foregroundColor(.rippleOrange)
+                    })
+                    
+                }
                 
                 WeekRow()
                 
@@ -90,31 +114,38 @@ struct CalendarTab: View {
 
 struct WeekRow: View {
     @EnvironmentObject var week: currentWeek
-    @State var selected = false
     let calendar = Calendar.current
     var body: some View {
-        HStack {
+        HStack(spacing: 15) {
             ForEach(week.days, id: \.self) { day in
-                Text(self.dayString(date: day))
-                    .font(.custom("Jost-Light", size: 20))
-                    .padding(8)
-                    .background(
-                        Circle()
-                            .fill(Color.rippleOrange)
-                            .frame(width: day == self.week.currentDate ? 35 : 0, height: day == self.week.currentDate ? 35 : 0)
-                            .shadow(radius: 5)
-                        
+                HStack {
+                    Text(self.dayString(date: day))
+                        .font(.custom("Jost-Light", size: 20))
+                        .padding(8)
+                        .background(
+                            ZStack {
+                                Circle()
+                                    .fill(Color.rippleOrange)
+                                    .frame(width: day == self.week.currentDate ? 35 : 0, height: day == self.week.currentDate ? 35 : 0)
+                                    .shadow(radius: 5)
+                                Circle()
+                                    .stroke(Color.rippleOrange)
+                                    .frame(width: 35, height: 35)
+                                
+                            }
                             
                     )
-                    .onTapGesture {
-                        withAnimation(.spring(response: 0.1, dampingFraction: 0.2, blendDuration: 0.2)) {
-                            self.week.setCurrentDateTo(date: day)
-                        }
+                        
+                        .onTapGesture {
+                            withAnimation(.spring(response: 0.1, dampingFraction: 0.2, blendDuration: 0.2)) {
+                                self.week.setCurrentDateTo(date: day)
+                            }
+                    }
                 }
-                    
             }
         }
     }
+    
     func dayString(date: Date) -> String {
         let formatter1 = DateFormatter()
         formatter1.dateFormat = "d"
