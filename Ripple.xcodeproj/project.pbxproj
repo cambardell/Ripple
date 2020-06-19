@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC1BEF24249C37E0007DF542 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1BEF23249C37E0007DF542 /* CustomSlider.swift */; };
 		FC249E532432D5A0005D1855 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC249E522432D5A0005D1855 /* AppDelegate.swift */; };
 		FC249E552432D5A0005D1855 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC249E542432D5A0005D1855 /* SceneDelegate.swift */; };
 		FC249E582432D5A0005D1855 /* Ripple.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC249E562432D5A0005D1855 /* Ripple.xcdatamodeld */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FC1BEF23249C37E0007DF542 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		FC249E4F2432D5A0005D1855 /* Ripple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ripple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC249E522432D5A0005D1855 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC249E542432D5A0005D1855 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				FC249E592432D5A0005D1855 /* ContentView.swift */,
 				FC965D25247F33AB00A06178 /* DatesModel.swift */,
 				FC7C7D0C243EA31B00633057 /* LogCard.swift */,
+				FC1BEF23249C37E0007DF542 /* CustomSlider.swift */,
 				FC7C7D10243EA5C800633057 /* UIKitTextField.swift */,
 				FCFAA259243919D400864EB1 /* AddLogView.swift */,
 				FC65EB232433C414004E8431 /* UIColor+RippleV2.swift */,
@@ -193,6 +196,7 @@
 			files = (
 				FC65EB262433C477004E8431 /* Cosmetics.swift in Sources */,
 				FC249E582432D5A0005D1855 /* Ripple.xcdatamodeld in Sources */,
+				FC1BEF24249C37E0007DF542 /* CustomSlider.swift in Sources */,
 				FCFAA25A243919D400864EB1 /* AddLogView.swift in Sources */,
 				FC249E532432D5A0005D1855 /* AppDelegate.swift in Sources */,
 				FC7C7D0D243EA31B00633057 /* LogCard.swift in Sources */,

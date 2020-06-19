@@ -128,9 +128,7 @@ struct WeekRow: View {
                                     .fill(Color.rippleOrange)
                                     .frame(width: day == self.week.currentDate ? 35 : 0, height: day == self.week.currentDate ? 35 : 0)
                                     .shadow(radius: 5)
-                                Circle()
-                                    .stroke(Color.rippleOrange)
-                                    .frame(width: 35, height: 35)
+                                
                                 
                             }
                             
