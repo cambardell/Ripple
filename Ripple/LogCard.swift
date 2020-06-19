@@ -63,30 +63,33 @@ struct LogCard: View {
                                                 
                     }.padding(.horizontal)
                     
-                    Rectangle()
-                        .frame(height: 45)
-                        .cornerRadius(10)
-                        .foregroundColor(.white)
-                        .padding([.leading, .trailing])
-                        .overlay(
-                            Text("Rate (sleep/anxiety/specific attribute)")
-                    )
-                    Rectangle()
-                        .frame(height: 90)
-                        .cornerRadius(10)
-                        .foregroundColor(.white)
-                        .padding([.leading, .trailing])
-                        .overlay(
-                            Text("Text field for general comments")
-                    )
-                    Rectangle()
-                        .frame(height: 45)
-                        .cornerRadius(10)
-                        .foregroundColor(.white)
-                        .padding([.leading, .trailing])
-                        .overlay(
-                            Text("Save button")
-                    )
+                    HStack {
+                        
+                        Text("Rate your specific wellness:").font(.custom("Jost", size: 20)).padding(.horizontal)
+                        Spacer()
+                    }
+                    HStack {
+                        CustomSlider(value: $specificWellness, range: (0, 100), knobWidth: 0) { modifiers in
+                            ZStack {
+                                
+                                LinearGradient(gradient: .init(colors: [Color.white, Color.white]), startPoint: .bottom, endPoint: .top)
+                                
+                                Group {
+                                    LinearGradient(gradient: .init(colors: [Color.rippleBlue, Color.rippleOrange ]), startPoint: .leading, endPoint: .trailing)
+                                    
+                                }.modifier(modifiers.barLeft)
+                                
+                                Text(String(Int(self.overallWellness))).foregroundColor(.black)
+                            }
+                            
+                            
+                            .cornerRadius(8)
+                        }
+                        
+                        
+                        .frame(height: 40)
+                                                
+                    }.padding(.horizontal)
                     
                 }
                 
