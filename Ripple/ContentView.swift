@@ -20,12 +20,10 @@ struct ContentView: View {
                     .background(Color.rippleBlue)
                     .padding(.bottom)
                 
+                LogCard(color: .rippleYellow, width: geometry.size.width, height: geometry.size.height, title: "Morning Log", expand: false)
+                .padding(.top)
                 
-                LogCard2(color: .rippleYellow, width: geometry.size.width, height: geometry.size.height, title: "Morning Log")
-                    .padding(.bottom)
-                
-                
-                LogCard2(color: .rippleOrange, width: geometry.size.width, height: geometry.size.height, title: "Morning Log")
+                LogCard(color: .rippleOrange, width: geometry.size.width, height: geometry.size.height, title: "Morning Log", expand: false)
                     .padding(.top)
                 
                 
