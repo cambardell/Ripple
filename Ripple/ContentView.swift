@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var week: currentWeek
+    @State var currentPage = 0
     
     var body: some View {
         
@@ -18,33 +19,22 @@ struct ContentView: View {
                 
                 CalendarTab().padding(.top)
                     .background(Color.rippleBlue)
-                    .padding(.bottom)
+                    
                 
-                LogCard(color: .rippleYellow, width: geometry.size.width, height: geometry.size.height, title: "Morning Log", expand: false)
-                .padding(.top)
+                PageView(pageCount: 2, pageIndex: self.$currentPage) {
+                    LogCard(color: .rippleYellow, width: geometry.size.width, height: geometry.size.height, title: "Morning Log", expand: true)
+                    
+                    
+                    LogCard(color: .rippleOrange, width: geometry.size.width, height: geometry.size.height, title: "Morning Log", expand: true)
+                        
+                }
                 
-                LogCard(color: .rippleOrange, width: geometry.size.width, height: geometry.size.height, title: "Morning Log", expand: false)
-                    .padding(.top)
+                
                 
                 
                 Spacer()
                 
-                Button(action: {
-                    print("Show mood chart")
-                }) {
-                    Text("View Chart")
-                        .font(.headline)
-                        .foregroundColor(.rippleDarkBlue)
-                        .padding()
-                        .overlay(
-                            Capsule()
-                                .stroke(lineWidth: 5)
-                                .foregroundColor(.rippleDarkBlue)
-                            
-                            
-                    )
-                    
-                }
+                
             }.edgesIgnoringSafeArea(.top)
             
         }
@@ -92,12 +82,9 @@ struct CalendarTab: View {
                     })
                     
                 }
-                
                 WeekRow()
-                
             }
             Spacer()
-            
         }.padding()
             .background(Color.rippleBlue)
         
@@ -114,7 +101,7 @@ struct WeekRow: View {
     @EnvironmentObject var week: currentWeek
     let calendar = Calendar.current
     var body: some View {
-        HStack(spacing: 15) {
+        HStack {
             ForEach(week.days, id: \.self) { day in
                 HStack {
                     Text(self.dayString(date: day))
@@ -126,10 +113,7 @@ struct WeekRow: View {
                                     .fill(Color.rippleOrange)
                                     .frame(width: day == self.week.currentDate ? 35 : 0, height: day == self.week.currentDate ? 35 : 0)
                                     .shadow(radius: 5)
-                                
-                                
-                            }
-                            
+                            }   
                     )
                         
                         .onTapGesture {
