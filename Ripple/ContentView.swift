@@ -26,15 +26,9 @@ struct ContentView: View {
                     
                     
                     LogCard(color: .rippleOrange, width: geometry.size.width, height: geometry.size.height, title: "Morning Log", expand: true)
-                        
                 }
-                
-                
-                
-                
+
                 Spacer()
-                
-                
             }.edgesIgnoringSafeArea(.top)
             
         }
@@ -101,6 +95,7 @@ struct WeekRow: View {
     @EnvironmentObject var week: currentWeek
     let calendar = Calendar.current
     var body: some View {
+        
         HStack {
             ForEach(week.days, id: \.self) { day in
                 HStack {

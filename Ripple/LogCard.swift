@@ -14,7 +14,6 @@ struct LogCard_Previews: PreviewProvider {
         Group {
             LogCard(color: .rippleYellow, width: 400, height: 734, title: "Morning Log", expand: true)
         }
-        
     }
 }
 
@@ -27,9 +26,9 @@ struct LogCard: View {
     @State var overallWellness = 5.0
     @State var specificWellness = 5.0
     @State var expand: Bool
-    @State var text = ""
+    @State var text = "General comments"
     var body: some View {
-        VStack {
+        VStack(spacing: 5) {
             HStack {
                 Spacer()
                 Text(title).font(.custom("JosefinSans-Light", size: 30))
@@ -43,11 +42,15 @@ struct LogCard: View {
             }
             
             if expand {
-                VStack {
+                if #available(iOS 14.0, *) {
+                    Label("Label", systemImage: "42.circle")
+                } else {
                     HStack {
                         Text("Rate your overall wellness:").font(.custom("Jost", size: 20)).padding(.horizontal)
                         Spacer()
                     }
+                }
+                    
                     HStack {
                         CustomSlider(value: $overallWellness, range: (0, 10), knobWidth: 0) { modifiers in
                             ZStack {
@@ -55,7 +58,7 @@ struct LogCard: View {
                                 LinearGradient(gradient: .init(colors: [Color.white, Color.white]), startPoint: .bottom, endPoint: .top)
                                 
                                 Group {
-                                   Color(.sRGB, red: 1 - self.overallWellness / 10, green: self.overallWellness / 10, blue: 0.80, opacity: 1.0)
+                                    Color(.sRGB, red: 1 - self.overallWellness / 10, green: self.overallWellness / 10, blue: 0.90, opacity: 1.0).cornerRadius(8)
                                     
                                 }.modifier(modifiers.barLeft)
                                 
@@ -81,7 +84,7 @@ struct LogCard: View {
                                 LinearGradient(gradient: .init(colors: [Color.white, Color.white]), startPoint: .bottom, endPoint: .top)
                                 
                                 Group {
-                                    Color(.sRGB, red: 1 - self.specificWellness / 10, green: self.specificWellness / 10, blue: 0.80, opacity: 1.0)
+                                    Color(.sRGB, red: 1 - self.specificWellness / 10, green: self.specificWellness / 10, blue: 0.90, opacity: 1.0).cornerRadius(8)
                                 }.modifier(modifiers.barLeft)
                                 
                                 HStack {
@@ -93,15 +96,17 @@ struct LogCard: View {
                         }.frame(height: 40)
                     }.padding(.horizontal)
                     
-                    HStack {
-                        Text("General comments: ").font(.custom("Jost", size: 20)).padding(.horizontal)
-                        Spacer()
+                    if #available(iOS 14.0, *) {
+                        TextEditor(text: $text)
+                            .cornerRadius(8)
+                            .padding()
+                            
+                    } else {
+                        TextView(text: $text, placeholder: "Type here")
+                            .cornerRadius(8)
+                            .frame(height: 100)
+                            .padding(.horizontal)
                     }
-                    
-                    TextView(text: $text, placeholder: "Type here")
-                        .cornerRadius(8)
-                        .frame(height: 100)
-                        .padding(.horizontal)
                     
                     Button(action: {
                         print("Save")
@@ -114,10 +119,11 @@ struct LogCard: View {
                             .overlay(Text("Save").foregroundColor(.white))
                         
                     }.padding(.vertical)
+                    Spacer()
                     
-                }.padding()
+                
             }
-        }
+        }.padding(.horizontal)
         .background(
             Rectangle()
                 .fill(self.color)
