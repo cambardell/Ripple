@@ -36,7 +36,7 @@ struct LogCard: View {
                 Spacer()
                 
             }.onTapGesture {
-                withAnimation(.spring(response: 0.2, dampingFraction: 0.4, blendDuration: 0.2)) {
+                withAnimation(.spring(response: 0.4, dampingFraction: 0.4, blendDuration: 0.2)) {
                     self.expand.toggle()
                 }
             }
@@ -110,7 +110,7 @@ struct LogCard: View {
                     print("Save")
                 }) {
                     Rectangle()
-                        .fill(Color.rippleRed)
+                        .fill(Color.rippleDarkBlue)
                         .cornerRadius(8)
                         .frame(height: 40)
                         .padding(.horizontal)

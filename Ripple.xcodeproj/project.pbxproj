@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,8 @@
 		FC249E622432D5A2005D1855 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC249E602432D5A2005D1855 /* LaunchScreen.storyboard */; };
 		FC65EB242433C414004E8431 /* UIColor+RippleV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC65EB232433C414004E8431 /* UIColor+RippleV2.swift */; };
 		FC65EB262433C477004E8431 /* Cosmetics.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC65EB252433C477004E8431 /* Cosmetics.swift */; };
+		FC6A415924A3E0E400B847F6 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6A415824A3E0E400B847F6 /* GraphView.swift */; };
+		FC6A415C24A3E31D00B847F6 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = FC6A415B24A3E31D00B847F6 /* SwiftUICharts */; };
 		FC7C7D0D243EA31B00633057 /* LogCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C7D0C243EA31B00633057 /* LogCard.swift */; };
 		FC7C7D11243EA5C800633057 /* UIKitTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C7D10243EA5C800633057 /* UIKitTextField.swift */; };
 		FC931A25247CC94C00405A4F /* Jost-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC931A24247CC94C00405A4F /* Jost-Regular.ttf */; };
@@ -42,6 +44,7 @@
 		FC249E632432D5A2005D1855 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC65EB232433C414004E8431 /* UIColor+RippleV2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+RippleV2.swift"; sourceTree = "<group>"; };
 		FC65EB252433C477004E8431 /* Cosmetics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cosmetics.swift; sourceTree = "<group>"; };
+		FC6A415824A3E0E400B847F6 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		FC7C7D0C243EA31B00633057 /* LogCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCard.swift; sourceTree = "<group>"; };
 		FC7C7D10243EA5C800633057 /* UIKitTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitTextField.swift; sourceTree = "<group>"; };
 		FC931A24247CC94C00405A4F /* Jost-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-Regular.ttf"; sourceTree = "<group>"; };
@@ -57,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC6A415C24A3E31D00B847F6 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +89,7 @@
 				FC249E522432D5A0005D1855 /* AppDelegate.swift */,
 				FC249E542432D5A0005D1855 /* SceneDelegate.swift */,
 				FC249E592432D5A0005D1855 /* ContentView.swift */,
+				FC6A415824A3E0E400B847F6 /* GraphView.swift */,
 				FC965D25247F33AB00A06178 /* DatesModel.swift */,
 				FC7C7D0C243EA31B00633057 /* LogCard.swift */,
 				FC1BEF25249D27D5007DF542 /* PageView.swift */,
@@ -138,6 +143,9 @@
 			dependencies = (
 			);
 			name = Ripple;
+			packageProductDependencies = (
+				FC6A415B24A3E31D00B847F6 /* SwiftUICharts */,
+			);
 			productName = Ripple;
 			productReference = FC249E4F2432D5A0005D1855 /* Ripple.app */;
 			productType = "com.apple.product-type.application";
@@ -166,6 +174,9 @@
 				Base,
 			);
 			mainGroup = FC249E462432D5A0005D1855;
+			packageReferences = (
+				FC6A415A24A3E31D00B847F6 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = FC249E502432D5A0005D1855 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -203,6 +214,7 @@
 				FC1BEF24249C37E0007DF542 /* CustomSlider.swift in Sources */,
 				FCFAA25A243919D400864EB1 /* AddLogView.swift in Sources */,
 				FC249E532432D5A0005D1855 /* AppDelegate.swift in Sources */,
+				FC6A415924A3E0E400B847F6 /* GraphView.swift in Sources */,
 				FC7C7D0D243EA31B00633057 /* LogCard.swift in Sources */,
 				FC965D26247F33AB00A06178 /* DatesModel.swift in Sources */,
 				FC249E5A2432D5A0005D1855 /* ContentView.swift in Sources */,
@@ -277,7 +289,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -332,7 +344,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -408,6 +420,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FC6A415A24A3E31D00B847F6 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FC6A415B24A3E31D00B847F6 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC6A415A24A3E31D00B847F6 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FC249E562432D5A0005D1855 /* Ripple.xcdatamodeld */ = {

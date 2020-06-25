@@ -25,7 +25,7 @@ struct ContentView: View {
                     LogCard(color: .rippleYellow, width: geometry.size.width, height: geometry.size.height, title: "Morning Log", expand: true)
                     
                     
-                    LogCard(color: .rippleOrange, width: geometry.size.width, height: geometry.size.height, title: "Morning Log", expand: true)
+                    LogCard(color: .rippleRed, width: geometry.size.width, height: geometry.size.height, title: "Morning Log", expand: true)
                 }
 
                 Spacer()
@@ -119,6 +119,7 @@ struct WeekRow: View {
                 }
             }
         }
+        
     }
     
     func dayString(date: Date) -> String {
