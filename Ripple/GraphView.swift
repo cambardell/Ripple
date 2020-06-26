@@ -10,42 +10,41 @@ import SwiftUI
 import SwiftUICharts
 
 struct BarGraph: View {
+    
     let data = [0.1, 0.2, 0.3, 0.4, 0.3, 0.9, 0.2]
     @State var displayGraph = true
+    
     var body: some View {
-        
         VStack {
-            
-                HStack(alignment: .bottom) {
-                    ForEach(data, id: \.self) { item in
-                        
-                        VStack {
-                            Text(String(Int(item * 10)))
+            VStack {
+                ForEach(data, id: \.self) { item in
+                    
+                    HStack {
+                        Text("Day")
+        
+                        Rectangle()
+                            .transform(CGAffineTransform(scaleX: CGFloat(item), y: 1))
+                            .fill(Color.rippleRed)
+                            .cornerRadius(8)
                             
-                            GeometryReader { geometry in
-                                VStack {
-                                    Spacer()
-                                    Rectangle()
-                                        .fill(Color.rippleRed)
-                                        .frame(height: geometry.size.height * CGFloat(item))
-                                        .cornerRadius(8)
-                                }
-                            }
-                            
-                            Text("Day")
-                        }
-                    }
-                }.padding()
 
+                        Circle()
+                            .fill(Color.rippleOrange)
+                            .frame(width: 30, height: 30)
+                            .overlay(
+                                Text(String(Int(item * 10)))
+                            )
+                        
+                    }
+                }
+            }.padding()
         }
         .background(Color.rippleBlue)
         .cornerRadius(8)
         .padding()
-        
-        
+        .shadow(radius: 5)
     }
 }
-
 
 struct Graph_Previews: PreviewProvider {
     static var previews: some View {
