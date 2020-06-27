@@ -66,7 +66,7 @@ struct Bar: View {
     
     var body: some View {
         GeometryReader { geometry in
-            BarShape(width: Double(geometry.size.width), height: height)
+            BarShape(width: Double(geometry.size.width), height: height, finalHeight: Double(geometry.size.height))
                 .fill(Color.rippleRed)
                 .scaleEffect(CGSize(width: 0.7, height: item), anchor: .bottom)
                 .onAppear {
@@ -82,13 +82,16 @@ struct Bar: View {
 struct BarShape: Shape {
     var width: Double
     var height: Double
+    var finalHeight: Double
     func path(in rect: CGRect) -> Path {
         var path = Path()
-        path.move(to: CGPoint(x: 0, y: 0))
-        path.addLine(to: CGPoint(x: width, y: 0))
-        path.addLine(to: CGPoint(x: width, y: height))
-        path.addLine(to: CGPoint(x: 0, y: height))
-        path.addLine(to: CGPoint(x: 0, y: 0))
+        
+        // GeometryReader renders from top down, so this weird stuff is to animate top to bottom. 
+        path.move(to: CGPoint(x: 0, y: finalHeight - height))
+        path.addLine(to: CGPoint(x: width, y: finalHeight - height))
+        path.addLine(to: CGPoint(x: width, y: finalHeight))
+        path.addLine(to: CGPoint(x: 0, y: finalHeight))
+        path.addLine(to: CGPoint(x: 0, y: finalHeight - height))
         return path
     }
     
@@ -107,6 +110,7 @@ struct GridLine: View {
     
     var animation: Animation {
         Animation.linear(duration: 0.5)
+            // So they animate in succession.
             .delay(delay / 10)
     }
     
