@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import SwiftUICharts
 
 struct BarGraph: View {
     
@@ -16,28 +15,27 @@ struct BarGraph: View {
     
     var body: some View {
         VStack {
-            VStack {
-                ForEach(data, id: \.self) { item in
-                    
-                    HStack {
-                        Text("Day")
-        
-                        Rectangle()
-                            .transform(CGAffineTransform(scaleX: CGFloat(item), y: 1))
-                            .fill(Color.rippleRed)
-                            .cornerRadius(8)
-                            
-
-                        Circle()
-                            .fill(Color.rippleOrange)
-                            .frame(width: 30, height: 30)
-                            .overlay(
-                                Text(String(Int(item * 10)))
-                            )
-                        
+            ZStack {
+                VStack {
+                    // To match above layer
+                    Text("Day").foregroundColor(.clear)
+                    ForEach((1...10), id: \.self) { item in
+                        GridLine(delay: Double(item))
+                        Spacer()
                     }
-                }
-            }.padding()
+                }.padding()
+                
+                HStack(alignment: .bottom) {
+                    ForEach((0...data.count-1), id: \.self) { index in
+                        VStack {
+                            Text("Day")
+                            ZStack {
+                                Bar(item: data[index], delay: Double(index))
+                            }
+                        }
+                    }
+                }.padding()
+            }
         }
         .background(Color.rippleBlue)
         .cornerRadius(8)
@@ -54,4 +52,92 @@ struct Graph_Previews: PreviewProvider {
         }
     }
 }
+
+
+struct Bar: View {
+    var item: Double
+    var delay: Double
+    @State var height: Double = 0.0
+    var animation: Animation {
+        Animation.linear(duration: 0.5)
+            
+            
+    }
+    
+    var body: some View {
+        GeometryReader { geometry in
+            BarShape(width: Double(geometry.size.width), height: height)
+                .fill(Color.rippleRed)
+                .scaleEffect(CGSize(width: 0.7, height: item), anchor: .bottom)
+                .onAppear {
+                    withAnimation(self.animation) {
+                        height = Double(geometry.size.height)
+                    }
+                }
+        }
+        
+    }
+}
+
+struct BarShape: Shape {
+    var width: Double
+    var height: Double
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        path.move(to: CGPoint(x: 0, y: 0))
+        path.addLine(to: CGPoint(x: width, y: 0))
+        path.addLine(to: CGPoint(x: width, y: height))
+        path.addLine(to: CGPoint(x: 0, y: height))
+        path.addLine(to: CGPoint(x: 0, y: 0))
+        return path
+    }
+    
+    var animatableData: Double {
+        get { return height }
+        set { height = newValue }
+    }
+    
+    
+}
+
+
+struct GridLine: View {
+    @State var length: Double = 0.0
+    var delay: Double
+    
+    var animation: Animation {
+        Animation.linear(duration: 0.5)
+            .delay(delay / 10)
+    }
+    
+    var body: some View {
+        GeometryReader { geometry in
+            GridLineShape(length: self.length)
+                .stroke(lineWidth: 1)
+                .foregroundColor(.gray)
+                .onAppear {
+                    withAnimation(self.animation) {
+                        self.length = Double(geometry.size.width)
+                    }
+                }
+        }
+    }
+}
+
+struct GridLineShape: Shape {
+    var length: Double
+    func path(in rect: CGRect) -> Path {
+        
+        var path = Path()
+        path.move(to: CGPoint(x: 0, y: 0))
+        path.addLine(to: CGPoint(x: length, y: 0))
+        return path
+    }
+    
+    var animatableData: Double {
+        get { return length }
+        set { length = newValue }
+    }
+}
+
 
