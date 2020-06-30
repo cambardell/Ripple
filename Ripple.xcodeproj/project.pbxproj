@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08D9567724AAE99200318B7B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D9567624AAE99200318B7B /* SettingsView.swift */; };
 		FC1BEF24249C37E0007DF542 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1BEF23249C37E0007DF542 /* CustomSlider.swift */; };
 		FC1BEF26249D27D5007DF542 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1BEF25249D27D5007DF542 /* PageView.swift */; };
 		FC249E532432D5A0005D1855 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC249E522432D5A0005D1855 /* AppDelegate.swift */; };
@@ -27,10 +28,10 @@
 		FC931A29247CC9F400405A4F /* JosefinSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC931A28247CC9F400405A4F /* JosefinSans-Light.ttf */; };
 		FC931A2B247CCA7500405A4F /* Jost-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC931A2A247CCA7500405A4F /* Jost-Light.ttf */; };
 		FC965D26247F33AB00A06178 /* DatesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC965D25247F33AB00A06178 /* DatesModel.swift */; };
-		FCFAA25A243919D400864EB1 /* AddLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFAA259243919D400864EB1 /* AddLogView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08D9567624AAE99200318B7B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FC1BEF23249C37E0007DF542 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		FC1BEF25249D27D5007DF542 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		FC249E4F2432D5A0005D1855 /* Ripple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ripple.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,7 +53,6 @@
 		FC931A28247CC9F400405A4F /* JosefinSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Light.ttf"; sourceTree = "<group>"; };
 		FC931A2A247CCA7500405A4F /* Jost-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-Light.ttf"; sourceTree = "<group>"; };
 		FC965D25247F33AB00A06178 /* DatesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesModel.swift; sourceTree = "<group>"; };
-		FCFAA259243919D400864EB1 /* AddLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLogView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +67,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08D9567824AAEBD500318B7B /* SupportingViews */ = {
+			isa = PBXGroup;
+			children = (
+				FC1BEF25249D27D5007DF542 /* PageView.swift */,
+				FC1BEF23249C37E0007DF542 /* CustomSlider.swift */,
+				FC7C7D10243EA5C800633057 /* UIKitTextField.swift */,
+			);
+			path = SupportingViews;
+			sourceTree = "<group>";
+		};
+		08D9567A24AAEBFC00318B7B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FC249E522432D5A0005D1855 /* AppDelegate.swift */,
+				FC249E542432D5A0005D1855 /* SceneDelegate.swift */,
+				FC965D25247F33AB00A06178 /* DatesModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		08D9567B24AAEC0500318B7B /* MainViews */ = {
+			isa = PBXGroup;
+			children = (
+				FC249E592432D5A0005D1855 /* ContentView.swift */,
+				FC6A415824A3E0E400B847F6 /* GraphView.swift */,
+				FC7C7D0C243EA31B00633057 /* LogCard.swift */,
+				08D9567624AAE99200318B7B /* SettingsView.swift */,
+			);
+			path = MainViews;
+			sourceTree = "<group>";
+		};
 		FC249E462432D5A0005D1855 = {
 			isa = PBXGroup;
 			children = (
@@ -86,16 +117,9 @@
 		FC249E512432D5A0005D1855 /* Ripple */ = {
 			isa = PBXGroup;
 			children = (
-				FC249E522432D5A0005D1855 /* AppDelegate.swift */,
-				FC249E542432D5A0005D1855 /* SceneDelegate.swift */,
-				FC249E592432D5A0005D1855 /* ContentView.swift */,
-				FC6A415824A3E0E400B847F6 /* GraphView.swift */,
-				FC965D25247F33AB00A06178 /* DatesModel.swift */,
-				FC7C7D0C243EA31B00633057 /* LogCard.swift */,
-				FC1BEF25249D27D5007DF542 /* PageView.swift */,
-				FC1BEF23249C37E0007DF542 /* CustomSlider.swift */,
-				FC7C7D10243EA5C800633057 /* UIKitTextField.swift */,
-				FCFAA259243919D400864EB1 /* AddLogView.swift */,
+				08D9567B24AAEC0500318B7B /* MainViews */,
+				08D9567A24AAEBFC00318B7B /* Model */,
+				08D9567824AAEBD500318B7B /* SupportingViews */,
 				FC65EB232433C414004E8431 /* UIColor+RippleV2.swift */,
 				FC65EB252433C477004E8431 /* Cosmetics.swift */,
 				FC249E5B2432D5A2005D1855 /* Assets.xcassets */,
@@ -212,9 +236,9 @@
 				FC1BEF26249D27D5007DF542 /* PageView.swift in Sources */,
 				FC249E582432D5A0005D1855 /* Ripple.xcdatamodeld in Sources */,
 				FC1BEF24249C37E0007DF542 /* CustomSlider.swift in Sources */,
-				FCFAA25A243919D400864EB1 /* AddLogView.swift in Sources */,
 				FC249E532432D5A0005D1855 /* AppDelegate.swift in Sources */,
 				FC6A415924A3E0E400B847F6 /* GraphView.swift in Sources */,
+				08D9567724AAE99200318B7B /* SettingsView.swift in Sources */,
 				FC7C7D0D243EA31B00633057 /* LogCard.swift in Sources */,
 				FC965D26247F33AB00A06178 /* DatesModel.swift in Sources */,
 				FC249E5A2432D5A0005D1855 /* ContentView.swift in Sources */,
