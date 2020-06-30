@@ -61,7 +61,7 @@ struct CalendarTab: View {
                     })
                     Spacer()
                     Text(monthString(date: week.currentDate))
-                        .font(.custom("JosefinSans-Regular", size: 40))
+                        .modifier(titleText())
                         .padding(.top)
                     Spacer()
                     Button(action: {

@@ -34,7 +34,8 @@ struct BarGraph: View {
                             }
                         }
                     }
-                }.padding()
+                }
+                .padding()
             }
         }
         .background(Color.rippleBlue)
@@ -69,6 +70,7 @@ struct Bar: View {
             BarShape(width: Double(geometry.size.width), height: height, finalHeight: Double(geometry.size.height))
                 .fill(Color.rippleRed)
                 .scaleEffect(CGSize(width: 0.7, height: item), anchor: .bottom)
+                .shadow(radius: 5)
                 .onAppear {
                     withAnimation(self.animation) {
                         height = Double(geometry.size.height)
@@ -109,9 +111,9 @@ struct GridLine: View {
     var delay: Double
     
     var animation: Animation {
-        Animation.linear(duration: 0.5)
+        Animation.linear(duration: 0.3)
             // So they animate in succession.
-            .delay(delay / 10)
+            .delay(delay / 20)
     }
     
     var body: some View {

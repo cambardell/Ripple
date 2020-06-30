@@ -31,7 +31,8 @@ struct LogCard: View {
         VStack(spacing: 5) {
             HStack {
                 Spacer()
-                Text(title).font(.custom("JosefinSans-Light", size: 30))
+                Text(title)
+                    .modifier(headingText())
                     .padding()
                 Spacer()
                 
@@ -44,7 +45,9 @@ struct LogCard: View {
             if expand {
                 
                 HStack {
-                    Text("Rate your overall wellness:").font(.custom("Jost", size: 20)).padding(.horizontal)
+                    Text("Rate your overall wellness:")
+                        .modifier(basicText())
+                        .padding(.horizontal)
                     Spacer()
                 }
                 
@@ -72,7 +75,9 @@ struct LogCard: View {
                 
                 HStack {
                     
-                    Text("Rate your specific wellness:").font(.custom("Jost", size: 20)).padding(.horizontal)
+                    Text("Rate your specific wellness:")
+                        .modifier(basicText())
+                        .padding(.horizontal)
                     Spacer()
                 }
                 HStack {
@@ -96,6 +101,7 @@ struct LogCard: View {
                 
                 if #available(iOS 14.0, *) {
                     TextEditor(text: $text)
+                        .modifier(basicText())
                         .cornerRadius(8)
                         .padding()
                     
@@ -114,7 +120,11 @@ struct LogCard: View {
                         .cornerRadius(8)
                         .frame(height: 40)
                         .padding(.horizontal)
-                        .overlay(Text("Save").foregroundColor(.white))
+                        .overlay(
+                            Text("Save")
+                                .modifier(basicText())
+                                .foregroundColor(.white)
+                        )
                     
                 }.padding(.vertical)
                 Spacer()
