@@ -25,16 +25,10 @@ struct ContentView: View {
                     LogCard(color: .rippleYellow, width: geometry.size.width, height: geometry.size.height, title: "Morning Log", expand: true)
                     
                     
-                    LogCard(color: .rippleOrange, width: geometry.size.width, height: geometry.size.height, title: "Morning Log", expand: true)
-                        
+                    LogCard(color: .rippleRed, width: geometry.size.width, height: geometry.size.height, title: "Morning Log", expand: true)
                 }
-                
-                
-                
-                
+
                 Spacer()
-                
-                
             }.edgesIgnoringSafeArea(.top)
             
         }
@@ -67,7 +61,7 @@ struct CalendarTab: View {
                     })
                     Spacer()
                     Text(monthString(date: week.currentDate))
-                        .font(.custom("JosefinSans-Regular", size: 40))
+                        .modifier(titleText())
                         .padding(.top)
                     Spacer()
                     Button(action: {
@@ -101,6 +95,7 @@ struct WeekRow: View {
     @EnvironmentObject var week: currentWeek
     let calendar = Calendar.current
     var body: some View {
+        
         HStack {
             ForEach(week.days, id: \.self) { day in
                 HStack {
@@ -124,6 +119,7 @@ struct WeekRow: View {
                 }
             }
         }
+        
     }
     
     func dayString(date: Date) -> String {
