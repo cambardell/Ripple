@@ -32,5 +32,8 @@ extension UIColor {
     class var rippleRed: UIColor {
         return UIColor(red: 0.88, green: 0.22, blue: 0.22, alpha: 1.00)
     }
+    class var rippleNewGreen: UIColor {
+        return UIColor(red: 0.63, green: 0.93, blue: 0.31, alpha: 1.00)
+    }
 
 }

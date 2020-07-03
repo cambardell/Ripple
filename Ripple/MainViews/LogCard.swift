@@ -33,7 +33,7 @@ struct LogCard: View {
                 Spacer()
                 Text(title)
                     .modifier(headingText())
-                    .padding()
+                    .padding(.top)
                 Spacer()
                 
             }.onTapGesture {
@@ -43,7 +43,6 @@ struct LogCard: View {
             }
             
             if expand {
-                
                 HStack {
                     Text("Rate your overall wellness:")
                         .modifier(basicText())
@@ -56,10 +55,13 @@ struct LogCard: View {
                     CustomSlider(value: $overallWellness, range: (0, 10), knobWidth: 0) { modifiers in
                         ZStack {
                             
-                            LinearGradient(gradient: .init(colors: [Color.white, Color.white]), startPoint: .bottom, endPoint: .top)
+                            Color.white
                             
                             Group {
-                                Color(.sRGB, red: 0.58 - (overallWellness * 0.005), green: 0.84 - (overallWellness * 0.003), blue: 0.87 - (overallWellness * 0.064), opacity: 1.0).cornerRadius(8)
+                                Color.rippleBlue
+                                    .cornerRadius(8)
+                                    .shadow(radius: 5)
+//                                Color(.sRGB, red: 0.58 - (overallWellness * 0.005), green: 0.84 - (overallWellness * 0.003), blue: 0.87 - (overallWellness * 0.064), opacity: 1.0).cornerRadius(8)
                                 
                             }.modifier(modifiers.barLeft)
                             
@@ -84,10 +86,13 @@ struct LogCard: View {
                     CustomSlider(value: $specificWellness, range: (0, 10), knobWidth: 0) { modifiers in
                         ZStack {
                             
-                            LinearGradient(gradient: .init(colors: [Color.white, Color.white]), startPoint: .bottom, endPoint: .top)
+                            Color.white
                             
                             Group {
-                                Color(.sRGB, red: 0.58 - (specificWellness * 0.005), green: 0.84 - (specificWellness * 0.003), blue: 0.87 - (specificWellness * 0.064), opacity: 1.0).cornerRadius(8)
+                                Color.rippleBlue
+                                    .cornerRadius(8)
+                                    .shadow(radius: 5)
+                                // Color(.sRGB, red: 0.58 - (specificWellness * 0.005), green: 0.84 - (specificWellness * 0.003), blue: 0.87 - (specificWellness * 0.064), opacity: 1.0).cornerRadius(8)
                             }.modifier(modifiers.barLeft)
                             
                             HStack {
@@ -116,28 +121,28 @@ struct LogCard: View {
                     print("Save")
                 }) {
                     Rectangle()
-                        .fill(Color.rippleDarkBlue)
+                        .fill(Color.rippleOrange)
                         .cornerRadius(8)
                         .frame(height: 40)
                         .padding(.horizontal)
                         .overlay(
                             Text("Save")
                                 .modifier(basicText())
-                                .foregroundColor(.white)
+                                .foregroundColor(.black)
                         )
                     
-                }.padding(.vertical)
+                }.padding(.bottom)
                 Spacer()
                 
                 
             }
-        }.padding(.horizontal)
+        }.padding()
         .background(
             Rectangle()
                 .fill(self.color)
                 .cornerRadius(10)
                 .opacity(0.8)
-                .padding([.leading, .trailing])
+                .padding()
                 .shadow(radius: 5)
         )
         

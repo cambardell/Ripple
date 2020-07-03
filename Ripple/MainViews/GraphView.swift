@@ -47,9 +47,13 @@ struct BarGraph: View {
 
 struct Graph_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
+        VStack {
             BarGraph()
                 .frame(height: 300)
+            BarGraph()
+                .frame(height: 300)
+            Text("Something about comments")
+                
         }
     }
 }

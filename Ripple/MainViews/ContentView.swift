@@ -11,6 +11,7 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var week: currentWeek
     @State var currentPage = 0
+    @State var reportButtonsOffset = 500
     
     var body: some View {
         
@@ -19,22 +20,65 @@ struct ContentView: View {
                 
                 CalendarTab().padding(.top)
                     .background(Color.rippleBlue)
-                    
                 
                 PageView(pageCount: 2, pageIndex: self.$currentPage) {
                     LogCard(color: .rippleYellow, width: geometry.size.width, height: geometry.size.height, title: "Morning Log", expand: true)
                     
-                    
                     LogCard(color: .rippleRed, width: geometry.size.width, height: geometry.size.height, title: "Morning Log", expand: true)
                 }
-
+                
                 Spacer()
+                HStack {
+                    Button(action: {
+                        print("chart")
+                    }) {
+                        Image(systemName: "gear")
+                            .resizable()
+                            .foregroundColor(.rippleBlue)
+                            .frame(width: 40, height: 40)
+                            .padding(.horizontal)
+                    }
+                    Spacer()
+                    
+                        Button(action: {
+                            print("Weekly")
+                        }) {
+                            Text("Weekly")
+                                .foregroundColor(.black)
+                                .padding(8)
+                                .background(Color.rippleGreen)
+                                .cornerRadius(8)
+                        }.offset(x: CGFloat(reportButtonsOffset))
+                        Button(action: {
+                            print("Monthly")
+                        }) {
+                            Text("Monthly")
+                                .foregroundColor(.black)
+                                .padding(8)
+                                .background(Color.rippleGreen)
+                                .cornerRadius(8)
+                        }.offset(x: CGFloat(reportButtonsOffset))
+                    
+                    Button(action: {
+                        withAnimation(.spring(response: 0.2, dampingFraction: 0.6, blendDuration: 0.2)) {
+                            if reportButtonsOffset == 0 {
+                                reportButtonsOffset = 500
+                            } else {
+                                reportButtonsOffset = 0
+                            }
+                        }
+                    }) {
+                        Image(systemName: "chart.bar.fill")
+                            .resizable()
+                            .foregroundColor(.rippleBlue)
+                            .frame(width: 40, height: 40)
+                            .padding(.horizontal)
+                    }
+                }
             }.edgesIgnoringSafeArea(.top)
             
         }
     }
-    
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -53,11 +97,12 @@ struct CalendarTab: View {
                     Button(action: {
                         self.week.lastWeek()
                     },
-                           label: {
-                            Image(systemName: "arrow.left")
-                                .resizable()
-                                .frame(width: 30, height: 20)
-                                .foregroundColor(.rippleOrange)
+                    label: {
+                        Image(systemName: "arrow.left")
+                            .resizable()
+                            .font(Font.title.weight(.regular))
+                            .frame(width: 40, height: 30)
+                            .foregroundColor(.rippleOrange)
                     })
                     Spacer()
                     Text(monthString(date: week.currentDate))
@@ -68,11 +113,12 @@ struct CalendarTab: View {
                         self.week.nextWeek()
                         print(self.week.currentDate)
                     },
-                           label: {
-                            Image(systemName: "arrow.right")
-                                .resizable()
-                                .frame(width: 30, height: 20)
-                                .foregroundColor(.rippleOrange)
+                    label: {
+                        Image(systemName: "arrow.right")
+                            .resizable()
+                            .font(Font.title.weight(.regular))
+                            .frame(width: 40, height: 30)
+                            .foregroundColor(.rippleOrange)
                     })
                     
                 }
@@ -80,7 +126,7 @@ struct CalendarTab: View {
             }
             Spacer()
         }.padding()
-            .background(Color.rippleBlue)
+        .background(Color.rippleBlue)
         
     }
     
@@ -109,13 +155,13 @@ struct WeekRow: View {
                                     .frame(width: day == self.week.currentDate ? 35 : 0, height: day == self.week.currentDate ? 35 : 0)
                                     .shadow(radius: 5)
                             }   
-                    )
+                        )
                         
                         .onTapGesture {
                             withAnimation(.spring(response: 0.1, dampingFraction: 0.2, blendDuration: 0.2)) {
                                 self.week.setCurrentDateTo(date: day)
                             }
-                    }
+                        }
                 }
             }
         }
