@@ -38,7 +38,7 @@ struct SliderView: View {
                       .cornerRadius(8)
                     }
                     .frame(height: 40)
-                    .padding(2)
+                    
                     .background(
                       // adds shadow border around entire slider (to make it appear inset)
                       LinearGradient(gradient: .init(colors: [Color.gray, Color.black ]), startPoint: .bottom, endPoint: .top)

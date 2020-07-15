@@ -23,6 +23,7 @@
 		FC6A415C24A3E31D00B847F6 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = FC6A415B24A3E31D00B847F6 /* SwiftUICharts */; };
 		FC7C7D0D243EA31B00633057 /* LogCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C7D0C243EA31B00633057 /* LogCard.swift */; };
 		FC7C7D11243EA5C800633057 /* UIKitTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C7D10243EA5C800633057 /* UIKitTextField.swift */; };
+		FC7FA58724BE81C300A1C48F /* CalendarViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7FA58624BE81C300A1C48F /* CalendarViews.swift */; };
 		FC931A25247CC94C00405A4F /* Jost-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC931A24247CC94C00405A4F /* Jost-Regular.ttf */; };
 		FC931A27247CC95600405A4F /* JosefinSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC931A26247CC95600405A4F /* JosefinSans-Regular.ttf */; };
 		FC931A29247CC9F400405A4F /* JosefinSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC931A28247CC9F400405A4F /* JosefinSans-Light.ttf */; };
@@ -48,6 +49,7 @@
 		FC6A415824A3E0E400B847F6 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		FC7C7D0C243EA31B00633057 /* LogCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCard.swift; sourceTree = "<group>"; };
 		FC7C7D10243EA5C800633057 /* UIKitTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitTextField.swift; sourceTree = "<group>"; };
+		FC7FA58624BE81C300A1C48F /* CalendarViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViews.swift; sourceTree = "<group>"; };
 		FC931A24247CC94C00405A4F /* Jost-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-Regular.ttf"; sourceTree = "<group>"; };
 		FC931A26247CC95600405A4F /* JosefinSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Regular.ttf"; sourceTree = "<group>"; };
 		FC931A28247CC9F400405A4F /* JosefinSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Light.ttf"; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				FC1BEF25249D27D5007DF542 /* PageView.swift */,
 				FC1BEF23249C37E0007DF542 /* CustomSlider.swift */,
 				FC7C7D10243EA5C800633057 /* UIKitTextField.swift */,
+				FC7FA58624BE81C300A1C48F /* CalendarViews.swift */,
 			);
 			path = SupportingViews;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				FC6A415924A3E0E400B847F6 /* GraphView.swift in Sources */,
 				08D9567724AAE99200318B7B /* SettingsView.swift in Sources */,
 				FC7C7D0D243EA31B00633057 /* LogCard.swift in Sources */,
+				FC7FA58724BE81C300A1C48F /* CalendarViews.swift in Sources */,
 				FC965D26247F33AB00A06178 /* DatesModel.swift in Sources */,
 				FC249E5A2432D5A0005D1855 /* ContentView.swift in Sources */,
 				FC7C7D11243EA5C800633057 /* UIKitTextField.swift in Sources */,

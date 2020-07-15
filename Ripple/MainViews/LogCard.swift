@@ -12,7 +12,7 @@ import SwiftUI
 struct LogCard_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            LogCard(color: .rippleYellow, width: 400, height: 734, title: "Morning Log", expand: true)
+            LogCard(color: .rippleYellow, barColor: .rippleBlue, title: "Morning Log", expand: true)
         }
     }
 }
@@ -20,15 +20,14 @@ struct LogCard_Previews: PreviewProvider {
 
 struct LogCard: View {
     var color: Color
-    var width: CGFloat
-    var height: CGFloat
+    var barColor: Color
     var title: String
     @State var overallWellness = 5.0
     @State var specificWellness = 5.0
     @State var expand: Bool
     @State var text = "General comments"
     var body: some View {
-        VStack(spacing: 5) {
+        VStack(spacing: 15) {
             HStack {
                 Spacer()
                 Text(title)
@@ -58,7 +57,7 @@ struct LogCard: View {
                             Color.white
                             
                             Group {
-                                Color.rippleBlue
+                                self.barColor
                                     .cornerRadius(8)
                                     .shadow(radius: 5)
 //                                Color(.sRGB, red: 0.58 - (overallWellness * 0.005), green: 0.84 - (overallWellness * 0.003), blue: 0.87 - (overallWellness * 0.064), opacity: 1.0).cornerRadius(8)
@@ -89,7 +88,7 @@ struct LogCard: View {
                             Color.white
                             
                             Group {
-                                Color.rippleBlue
+                                self.barColor
                                     .cornerRadius(8)
                                     .shadow(radius: 5)
                                 // Color(.sRGB, red: 0.58 - (specificWellness * 0.005), green: 0.84 - (specificWellness * 0.003), blue: 0.87 - (specificWellness * 0.064), opacity: 1.0).cornerRadius(8)
@@ -104,31 +103,19 @@ struct LogCard: View {
                     }.frame(height: 40)
                 }.padding(.horizontal)
                 
-                if #available(iOS 14.0, *) {
-                    TextEditor(text: $text)
-                        .modifier(basicText())
-                        .cornerRadius(8)
-                        .padding()
-                    
-                } else {
-                    TextView(text: $text, placeholder: "Type here")
-                        .cornerRadius(8)
-                        .frame(height: 100)
-                        .padding(.horizontal)
-                }
                 
                 Button(action: {
                     print("Save")
                 }) {
                     Rectangle()
-                        .fill(Color.rippleOrange)
+                        .fill(Color.rippleDarkBlue)
                         .cornerRadius(8)
                         .frame(height: 40)
                         .padding(.horizontal)
                         .overlay(
                             Text("Save")
                                 .modifier(basicText())
-                                .foregroundColor(.black)
+                                .foregroundColor(.white)
                         )
                     
                 }.padding(.bottom)

@@ -20,8 +20,11 @@ struct BarGraph: View {
                     // To match above layer
                     Text("Day").foregroundColor(.clear)
                     ForEach((1...10), id: \.self) { item in
-                        GridLine(delay: Double(item))
-                        Spacer()
+                        VStack {
+                            GridLine(delay: Double(item))
+                            Spacer()
+                        }
+                        
                     }
                 }.padding()
                 
@@ -30,7 +33,7 @@ struct BarGraph: View {
                         VStack {
                             Text("Day")
                             ZStack {
-                                Bar(item: data[index], delay: Double(index))
+                                Bar(item: self.data[index], delay: Double(index))
                             }
                         }
                     }
@@ -71,13 +74,13 @@ struct Bar: View {
     
     var body: some View {
         GeometryReader { geometry in
-            BarShape(width: Double(geometry.size.width), height: height, finalHeight: Double(geometry.size.height))
+            BarShape(width: Double(geometry.size.width), height: self.height, finalHeight: Double(geometry.size.height))
                 .fill(Color.rippleRed)
-                .scaleEffect(CGSize(width: 0.7, height: item), anchor: .bottom)
+                .scaleEffect(CGSize(width: 0.7, height: self.item), anchor: .bottom)
                 .shadow(radius: 5)
                 .onAppear {
                     withAnimation(self.animation) {
-                        height = Double(geometry.size.height)
+                        self.height = Double(geometry.size.height)
                     }
                 }
         }
