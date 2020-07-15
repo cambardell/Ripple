@@ -12,6 +12,7 @@ struct LogCard: View {
     var color: Color
     var barColor: Color
     var title: String
+    var morning: Bool
     
     @Environment(\.managedObjectContext) var managedObjectContext
     
@@ -19,6 +20,8 @@ struct LogCard: View {
     @State var specificWellness = 5.0
     @State var expand: Bool
     @State var text = "General comments"
+    
+    
     
     var body: some View {
         VStack(spacing: 15) {
@@ -100,6 +103,7 @@ struct LogCard: View {
                 
                 Button(action: {
                     print("Save")
+                    self.saveLog()
                 }) {
                     Rectangle()
                         .fill(Color.rippleDarkBlue)
@@ -122,7 +126,7 @@ struct LogCard: View {
             Rectangle()
                 .fill(self.color)
                 .cornerRadius(10)
-                .opacity(0.8)
+                .opacity(0.5)
                 .padding()
                 .shadow(radius: 5)
         )
@@ -135,7 +139,7 @@ struct LogCard: View {
         log.specificRating = self.specificWellness
         log.date = Date()
         log.specificAttribute = "placeholder"
-        log.morning = true
+        log.morning = morning
         do {
             try self.managedObjectContext.save()
         } catch {
@@ -150,7 +154,7 @@ struct LogCard: View {
 struct LogCard_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            LogCard(color: .rippleYellow, barColor: .rippleBlue, title: "Morning Log", expand: true)
+            LogCard(color: .rippleYellow, barColor: .rippleBlue, title: "Morning Log", morning: true, expand: true)
         }
     }
 }

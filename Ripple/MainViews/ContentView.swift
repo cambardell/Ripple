@@ -9,11 +9,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var week: currentWeek
+    
     @Environment(\.managedObjectContext) var managedObjectContext
+    @EnvironmentObject var logData: LogData
     
     @State var currentPage = 0
     @State var reportButtonsOffset = 500
+    
+    @State var showListTest = false
     
     var body: some View {
         
@@ -21,15 +24,15 @@ struct ContentView: View {
         VStack {
             
             VStack {
-                LogCard(color: .rippleYellow, barColor: .rippleBlue, title: "Morning Log", expand: true).environment(\.managedObjectContext, self.managedObjectContext)
+                LogCard(color: .rippleYellow, barColor: .rippleBlue, title: "Morning Log", morning: true, expand: true).environment(\.managedObjectContext, self.managedObjectContext)
                 
-                LogCard(color: .rippleBlue, barColor: .rippleYellow, title: "Afternoon Log", expand: true).environment(\.managedObjectContext, self.managedObjectContext)
+                LogCard(color: .rippleBlue, barColor: .rippleYellow, title: "Afternoon Log", morning: false, expand: true).environment(\.managedObjectContext, self.managedObjectContext)
             }
             
             Spacer()
             HStack {
                 Button(action: {
-                    print("chart")
+                    self.showListTest.toggle()
                 }) {
                     Image(systemName: "gear")
                         .resizable()
@@ -74,10 +77,12 @@ struct ContentView: View {
                         .padding(.horizontal)
                 }
             }
-        }
+        }.sheet(isPresented: $showListTest) {
+            ListTestView().environment(\.managedObjectContext, self.managedObjectContext).environmentObject(self.logData)
         
         
     }
+}
 }
 
 struct ContentView_Previews: PreviewProvider {
