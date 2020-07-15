@@ -10,6 +10,8 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var week: currentWeek
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
     @State var currentPage = 0
     @State var reportButtonsOffset = 500
     
@@ -19,9 +21,9 @@ struct ContentView: View {
         VStack {
             
             VStack {
-                LogCard(color: .rippleYellow, barColor: .rippleBlue, title: "Morning Log", expand: true)
+                LogCard(color: .rippleYellow, barColor: .rippleBlue, title: "Morning Log", expand: true).environment(\.managedObjectContext, self.managedObjectContext)
                 
-                LogCard(color: .rippleBlue, barColor: .rippleYellow, title: "Afternoon Log", expand: true)
+                LogCard(color: .rippleBlue, barColor: .rippleYellow, title: "Afternoon Log", expand: true).environment(\.managedObjectContext, self.managedObjectContext)
             }
             
             Spacer()

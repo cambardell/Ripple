@@ -8,24 +8,18 @@
 
 import SwiftUI
 
-
-struct LogCard_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            LogCard(color: .rippleYellow, barColor: .rippleBlue, title: "Morning Log", expand: true)
-        }
-    }
-}
-
-
 struct LogCard: View {
     var color: Color
     var barColor: Color
     var title: String
+    
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
     @State var overallWellness = 5.0
     @State var specificWellness = 5.0
     @State var expand: Bool
     @State var text = "General comments"
+    
     var body: some View {
         VStack(spacing: 15) {
             HStack {
@@ -133,5 +127,30 @@ struct LogCard: View {
                 .shadow(radius: 5)
         )
         
+    }
+    
+    func saveLog() {
+        let log = Log(context: self.managedObjectContext)
+        log.overallRating = self.overallWellness
+        log.specificRating = self.specificWellness
+        log.date = Date()
+        log.specificAttribute = "placeholder"
+        log.morning = true
+        do {
+            try self.managedObjectContext.save()
+        } catch {
+            // handle the Core Data error
+            print("Failed to save new item. Error = \(error)")
+            
+        }
+    }
+}
+
+
+struct LogCard_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            LogCard(color: .rippleYellow, barColor: .rippleBlue, title: "Morning Log", expand: true)
+        }
     }
 }
