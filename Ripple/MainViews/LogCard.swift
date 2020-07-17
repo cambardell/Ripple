@@ -22,7 +22,6 @@ struct LogCard: View {
     @State var text = "General comments"
     
     
-    
     var body: some View {
         VStack(spacing: 15) {
             HStack {
@@ -137,7 +136,8 @@ struct LogCard: View {
         let log = Log(context: self.managedObjectContext)
         log.overallRating = self.overallWellness
         log.specificRating = self.specificWellness
-        log.date = Date()
+        log.date = Calendar.current.startOfDay(for: Date())
+        print(Date())
         log.specificAttribute = "placeholder"
         log.morning = morning
         do {

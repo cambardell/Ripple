@@ -19,19 +19,27 @@ class LogData: ObservableObject {
     ) var logs: FetchedResults<Log>
 }
 
-func isLogAtDate(date: Date, context: NSManagedObjectContext) -> Bool {
+func isLogAtDate(date: Date, morning: Bool, context: NSManagedObjectContext) -> Bool {
+    
     let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Log")
     request.predicate = NSPredicate(format: "date = %@", date as CVarArg)
     request.returnsObjectsAsFaults = false
+    
     do {
+        
         let result = try context.fetch(request)
-        for data in result as! [NSManagedObject] {
-            print(data.value(forKey: "overallRating") as? String ?? "Test")
+        for _ in result as! [NSManagedObject] {
+            if result.isEmpty {
+                return false
+            } else {
+                return true
+            }
       }
-        return true
         
     } catch {
-        return false
+        
+        print("Failed")
     }
+    return false
     
 }

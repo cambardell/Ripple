@@ -23,10 +23,20 @@ struct ListTestView: View {
         List {
             
             ForEach(self.logs, id: \.self) { log in
-                Text("test")
+                VStack {
+                    Text(String(log.overallRating))
+                    Text(String(log.morning))
+                    Text(self.formatDate(date: log.date!))
+                }
+                
             }
 
         }
+    }
+    func formatDate(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d y"
+        return formatter.string(from: date)
     }
 }
 

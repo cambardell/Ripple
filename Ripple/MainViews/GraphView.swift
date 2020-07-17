@@ -41,7 +41,7 @@ struct BarGraph: View {
                 .padding()
             }
         }
-        .background(Color.rippleBlue)
+        .background(Color.rippleBlue.opacity(0.5))
         .cornerRadius(8)
         .padding()
         .shadow(radius: 5)

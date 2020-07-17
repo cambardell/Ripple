@@ -26,6 +26,7 @@
 		FC7FA58724BE81C300A1C48F /* CalendarViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7FA58624BE81C300A1C48F /* CalendarViews.swift */; };
 		FC7FA58924BF81F800A1C48F /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7FA58824BF81F800A1C48F /* DataProvider.swift */; };
 		FC7FA58B24BF827300A1C48F /* ListTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7FA58A24BF827300A1C48F /* ListTestView.swift */; };
+		FC7FA58D24BFF63200A1C48F /* LineGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7FA58C24BFF63200A1C48F /* LineGraphView.swift */; };
 		FC931A25247CC94C00405A4F /* Jost-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC931A24247CC94C00405A4F /* Jost-Regular.ttf */; };
 		FC931A27247CC95600405A4F /* JosefinSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC931A26247CC95600405A4F /* JosefinSans-Regular.ttf */; };
 		FC931A29247CC9F400405A4F /* JosefinSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC931A28247CC9F400405A4F /* JosefinSans-Light.ttf */; };
@@ -54,6 +55,7 @@
 		FC7FA58624BE81C300A1C48F /* CalendarViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViews.swift; sourceTree = "<group>"; };
 		FC7FA58824BF81F800A1C48F /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		FC7FA58A24BF827300A1C48F /* ListTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTestView.swift; sourceTree = "<group>"; };
+		FC7FA58C24BFF63200A1C48F /* LineGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraphView.swift; sourceTree = "<group>"; };
 		FC931A24247CC94C00405A4F /* Jost-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-Regular.ttf"; sourceTree = "<group>"; };
 		FC931A26247CC95600405A4F /* JosefinSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Regular.ttf"; sourceTree = "<group>"; };
 		FC931A28247CC9F400405A4F /* JosefinSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Light.ttf"; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				FC7C7D10243EA5C800633057 /* UIKitTextField.swift */,
 				FC7FA58624BE81C300A1C48F /* CalendarViews.swift */,
 				FC7FA58A24BF827300A1C48F /* ListTestView.swift */,
+				FC7FA58C24BFF63200A1C48F /* LineGraphView.swift */,
 			);
 			path = SupportingViews;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			files = (
 				FC65EB262433C477004E8431 /* Cosmetics.swift in Sources */,
 				FC1BEF26249D27D5007DF542 /* PageView.swift in Sources */,
+				FC7FA58D24BFF63200A1C48F /* LineGraphView.swift in Sources */,
 				FC249E582432D5A0005D1855 /* Ripple.xcdatamodeld in Sources */,
 				FC1BEF24249C37E0007DF542 /* CustomSlider.swift in Sources */,
 				FC7FA58B24BF827300A1C48F /* ListTestView.swift in Sources */,

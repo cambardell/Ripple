@@ -24,9 +24,24 @@ struct ContentView: View {
         VStack {
             
             VStack {
-                LogCard(color: .rippleYellow, barColor: .rippleBlue, title: "Morning Log", morning: true, expand: true).environment(\.managedObjectContext, self.managedObjectContext)
+                if isLogAtDate(date: Calendar.current.startOfDay(for: Date()), morning: true, context: managedObjectContext) {
+                    Text("Already logged")
+                } else {
+                    LogCard(color: .rippleYellow, barColor: .rippleBlue, title: "Morning Log", morning: true, expand: true).environment(\.managedObjectContext, self.managedObjectContext)
+                }
+                if isLogAtDate(date: Calendar.current.startOfDay(for: Date()), morning: false, context: managedObjectContext) {
+                    Text("Already logged")
+                } else {
+                    LogCard(color: .rippleBlue, barColor: .rippleYellow, title: "Afternoon Log", morning: false, expand: true).environment(\.managedObjectContext, self.managedObjectContext)
+
+                }
                 
-                LogCard(color: .rippleBlue, barColor: .rippleYellow, title: "Afternoon Log", morning: false, expand: true).environment(\.managedObjectContext, self.managedObjectContext)
+                
+                
+                
+                
+                
+                
             }
             
             Spacer()
@@ -79,10 +94,10 @@ struct ContentView: View {
             }
         }.sheet(isPresented: $showListTest) {
             ListTestView().environment(\.managedObjectContext, self.managedObjectContext).environmentObject(self.logData)
-        
-        
+            
+            
+        }
     }
-}
 }
 
 struct ContentView_Previews: PreviewProvider {
