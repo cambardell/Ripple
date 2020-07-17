@@ -26,6 +26,7 @@ struct LogCompleteCard: View {
                     .modifier(basicText())
                 .padding()
             }
+            Text("👏").font(.custom("system", size: 80))
             Spacer()
         }.padding()
         .background(

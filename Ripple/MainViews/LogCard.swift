@@ -104,7 +104,10 @@ struct LogCard: View {
                 Button(action: {
                     print("Save")
                     self.saveLog()
-                    self.logCompleted.toggle()
+                    withAnimation {
+                        self.logCompleted.toggle()
+                    }
+                    
                 }) {
                     Rectangle()
                         .fill(Color.rippleDarkBlue)

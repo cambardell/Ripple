@@ -9,34 +9,52 @@
 import SwiftUI
 
 struct SettingsView: View {
+    
+    @State var attributeText = ""
+    
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Notifications")
-                .modifier(basicText())
-                .padding(.horizontal)
-            Text("Specific Attribute")
-                .modifier(basicText())
-                .padding(.horizontal)
-            Text("Social media likes, credit, Annabelle's info, etc.")
-                .modifier(basicText())
-                .padding(.horizontal)
-            Text("Quick explanation of wellness logging, links to articles.")
-                .modifier(basicText())
-                .padding(.horizontal)
-            Spacer()
-        }
-        .padding()
-        .background(
-            Rectangle()
-                .fill(Color.rippleRed)
-                .cornerRadius(10)
-                .opacity(0.8)
+            Text("Settings")
+                .modifier(headingText())
                 .padding()
-                .shadow(radius: 5)
-        )
+          
+            TextField("Specific attribute", text: $attributeText)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding(.horizontal)
+            
+            Spacer()
+            
+            Button(action: {
+                let url: NSURL = URL(string: "https://cambardell.github.io")! as NSURL
+                UIApplication.shared.open(url as URL)
+            }) {
+                Text("Made by Cameron Bardell")
+                    .foregroundColor(.rippleOrange)
+                    .underline()
+                    .padding()
+            }
+            
+            Button(action: {
+                let url: NSURL = URL(string: "https://annabellehartwich.myportfolio.cp,")! as NSURL
+                UIApplication.shared.open(url as URL)
+            }) {
+                Text("With design help from Annabelle Hartwich")
+                    .foregroundColor(.rippleOrange)
+                    .underline()
+                    .padding([.horizontal, .bottom])
+            }
 
-        
-        
+            
+            
+        }.padding()
+        .background(
+            
+            Rectangle()
+                .opacity(0.03)
+                .cornerRadius(10)
+                .shadow(radius: 5)
+                .padding()
+        )
     }
 }
 

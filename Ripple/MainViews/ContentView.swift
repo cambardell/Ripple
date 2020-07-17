@@ -22,22 +22,26 @@ struct ContentView: View {
     @State var afternoonLogCompleted: Bool
     
     var body: some View {
-        
         VStack {
-            
             VStack {
                 if morningLogCompleted {
+                    
                     LogCompleteCard(morning: true, color: .rippleYellow)
+                    
                 } else {
+                    
                     LogCard(color: .rippleYellow, barColor: .rippleBlue, title: "Morning Log", morning: true, expand: true, logCompleted: $morningLogCompleted).environment(\.managedObjectContext, self.managedObjectContext)
-                }
-                if afternoonLogCompleted {
-                    LogCompleteCard(morning: false, color: .rippleBlue)
-                } else {
-                    LogCard(color: .rippleBlue, barColor: .rippleYellow, title: "Afternoon Log", morning: false, expand: true, logCompleted: $afternoonLogCompleted).environment(\.managedObjectContext, self.managedObjectContext)
-
+                    
                 }
                 
+                if afternoonLogCompleted {
+                    
+                    LogCompleteCard(morning: false, color: .rippleBlue)
+                    
+                } else {
+                    
+                    LogCard(color: .rippleBlue, barColor: .rippleYellow, title: "Afternoon Log", morning: false, expand: true, logCompleted: $afternoonLogCompleted).environment(\.managedObjectContext, self.managedObjectContext)
+                }
             }
             
             Spacer()
