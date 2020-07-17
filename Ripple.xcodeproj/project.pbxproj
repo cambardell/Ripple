@@ -17,6 +17,7 @@
 		FC249E5C2432D5A2005D1855 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC249E5B2432D5A2005D1855 /* Assets.xcassets */; };
 		FC249E5F2432D5A2005D1855 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC249E5E2432D5A2005D1855 /* Preview Assets.xcassets */; };
 		FC249E622432D5A2005D1855 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC249E602432D5A2005D1855 /* LaunchScreen.storyboard */; };
+		FC4C1E6724C14936007C402B /* LogCompleteCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4C1E6624C14936007C402B /* LogCompleteCard.swift */; };
 		FC65EB242433C414004E8431 /* UIColor+RippleV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC65EB232433C414004E8431 /* UIColor+RippleV2.swift */; };
 		FC65EB262433C477004E8431 /* Cosmetics.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC65EB252433C477004E8431 /* Cosmetics.swift */; };
 		FC6A415924A3E0E400B847F6 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6A415824A3E0E400B847F6 /* GraphView.swift */; };
@@ -47,6 +48,7 @@
 		FC249E5E2432D5A2005D1855 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FC249E612432D5A2005D1855 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC249E632432D5A2005D1855 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC4C1E6624C14936007C402B /* LogCompleteCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCompleteCard.swift; sourceTree = "<group>"; };
 		FC65EB232433C414004E8431 /* UIColor+RippleV2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+RippleV2.swift"; sourceTree = "<group>"; };
 		FC65EB252433C477004E8431 /* Cosmetics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cosmetics.swift; sourceTree = "<group>"; };
 		FC6A415824A3E0E400B847F6 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				FC7FA58624BE81C300A1C48F /* CalendarViews.swift */,
 				FC7FA58A24BF827300A1C48F /* ListTestView.swift */,
 				FC7FA58C24BFF63200A1C48F /* LineGraphView.swift */,
+				FC4C1E6624C14936007C402B /* LogCompleteCard.swift */,
 			);
 			path = SupportingViews;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC65EB262433C477004E8431 /* Cosmetics.swift in Sources */,
+				FC4C1E6724C14936007C402B /* LogCompleteCard.swift in Sources */,
 				FC1BEF26249D27D5007DF542 /* PageView.swift in Sources */,
 				FC7FA58D24BFF63200A1C48F /* LineGraphView.swift in Sources */,
 				FC249E582432D5A0005D1855 /* Ripple.xcdatamodeld in Sources */,

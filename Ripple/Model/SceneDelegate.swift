@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
-        let contentView = ContentView().environment(\.managedObjectContext, context).environmentObject(LogData())
+        let contentView = ContentView(morningLogCompleted: isLogAtDate(date: Calendar.current.startOfDay(for: Date()), morning: true, context: context), afternoonLogCompleted: isLogAtDate(date: Calendar.current.startOfDay(for: Date()), morning: false, context: context)).environment(\.managedObjectContext, context).environmentObject(LogData())
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

@@ -21,6 +21,8 @@ struct LogCard: View {
     @State var expand: Bool
     @State var text = "General comments"
     
+    @Binding var logCompleted: Bool
+    
     
     var body: some View {
         VStack(spacing: 15) {
@@ -56,7 +58,6 @@ struct LogCard: View {
                                 self.barColor
                                     .cornerRadius(8)
                                     .shadow(radius: 5)
-//                                Color(.sRGB, red: 0.58 - (overallWellness * 0.005), green: 0.84 - (overallWellness * 0.003), blue: 0.87 - (overallWellness * 0.064), opacity: 1.0).cornerRadius(8)
                                 
                             }.modifier(modifiers.barLeft)
                             
@@ -103,6 +104,7 @@ struct LogCard: View {
                 Button(action: {
                     print("Save")
                     self.saveLog()
+                    self.logCompleted.toggle()
                 }) {
                     Rectangle()
                         .fill(Color.rippleDarkBlue)
@@ -154,7 +156,7 @@ struct LogCard: View {
 struct LogCard_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            LogCard(color: .rippleYellow, barColor: .rippleBlue, title: "Morning Log", morning: true, expand: true)
+            LogCard(color: .rippleYellow, barColor: .rippleBlue, title: "Morning Log", morning: true, expand: true, logCompleted: Binding.constant(false))
         }
     }
 }

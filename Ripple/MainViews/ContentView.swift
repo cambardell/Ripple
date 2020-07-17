@@ -18,29 +18,25 @@ struct ContentView: View {
     
     @State var showListTest = false
     
+    @State var morningLogCompleted: Bool
+    @State var afternoonLogCompleted: Bool
+    
     var body: some View {
-        
         
         VStack {
             
             VStack {
-                if isLogAtDate(date: Calendar.current.startOfDay(for: Date()), morning: true, context: managedObjectContext) {
-                    Text("Already logged")
+                if morningLogCompleted {
+                    LogCompleteCard(morning: true, color: .rippleYellow)
                 } else {
-                    LogCard(color: .rippleYellow, barColor: .rippleBlue, title: "Morning Log", morning: true, expand: true).environment(\.managedObjectContext, self.managedObjectContext)
+                    LogCard(color: .rippleYellow, barColor: .rippleBlue, title: "Morning Log", morning: true, expand: true, logCompleted: $morningLogCompleted).environment(\.managedObjectContext, self.managedObjectContext)
                 }
-                if isLogAtDate(date: Calendar.current.startOfDay(for: Date()), morning: false, context: managedObjectContext) {
-                    Text("Already logged")
+                if afternoonLogCompleted {
+                    LogCompleteCard(morning: false, color: .rippleBlue)
                 } else {
-                    LogCard(color: .rippleBlue, barColor: .rippleYellow, title: "Afternoon Log", morning: false, expand: true).environment(\.managedObjectContext, self.managedObjectContext)
+                    LogCard(color: .rippleBlue, barColor: .rippleYellow, title: "Afternoon Log", morning: false, expand: true, logCompleted: $afternoonLogCompleted).environment(\.managedObjectContext, self.managedObjectContext)
 
                 }
-                
-                
-                
-                
-                
-                
                 
             }
             
@@ -102,7 +98,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environmentObject(currentWeek())
+        ContentView(morningLogCompleted: false, afternoonLogCompleted: false).environmentObject(currentWeek())
     }
 }
 
